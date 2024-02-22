@@ -8,7 +8,9 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
-const menuRoute  =require('./routes/menu')
+const menuRoute  = require('./routes/menu')
+const userRoute = require('./routes/user.js')
+const User = require('./models/userSchema.js')
 
 app.use(methodOverride("_method"));
 // app.use(express.urlencoded({ urlencoded: true }));
@@ -28,16 +30,16 @@ app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
-// passport.use(new LocalStrategy(User.authenticate()));
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //Logger
 app.use((req,res,next) =>{
     if (req.path !== "/favicon.ico") {
-    // req.time = new Date( Date.now() ).toString();
     console.log(req.method,req.path);
     }
     next();
@@ -68,3 +70,4 @@ app.get("/", (req, res) => {
 })
 
 app.use("/api/menu" , menuRoute)
+app.use("/" , userRoute)

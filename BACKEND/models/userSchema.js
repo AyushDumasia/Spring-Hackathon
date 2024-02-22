@@ -11,22 +11,24 @@ const userSchema = new Schema({
     },
     email : {
         type : String,
-        required : [true , "Please add the contact email"],
+        required : [true , "Please add email contact email"],
         unique : [true , "Email already Register"]
     },
     phone : {
         type : String,
         required : [true , "Please add the Phone email"],
-        unique : [true , "Phone Number already Register"]
+        unique : [true , "Phone Number already Register"],
+        validate: {
+            validator: function(value) {
+                return value && value.length === 10;
+            },
+            message: 'Phone number must be exactly 10 characters long',
+        },
     },
     isHosteler : {
         type : Boolean,
         required : true
-    },
-    password : {
-        type : String,
-        required : [true , "Password"],
-    },
+    }
 },
 {
     timestamps  : true
