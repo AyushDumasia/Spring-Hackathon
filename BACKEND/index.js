@@ -8,6 +8,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
+const menuRoute  =require('./routes/menu')
 
 app.use(methodOverride("_method"));
 // app.use(express.urlencoded({ urlencoded: true }));
@@ -43,15 +44,15 @@ app.use((req,res,next) =>{
 })
 
 
-// const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
-// async function main() {
-//     await mongoose.connect(MONGO_URL);
-// }
-// main()
-//     .then(() => {
-//         console.log("success");
-//     })
-//     .catch(err => console.log(err));
+const MONGO_URL = "mongodb://127.0.0.1:27017/Hostel-System";
+async function main() {
+    await mongoose.connect(MONGO_URL);
+}
+main()
+    .then(() => {
+        console.log("success");
+    })
+    .catch(err => console.log(err));
 const PORT = 3000;
 app.listen(PORT , (req , res) =>{
     try{
@@ -65,3 +66,5 @@ app.listen(PORT , (req , res) =>{
 app.get("/", (req, res) => {
     res.send("Working");
 })
+
+app.use("/api/menu" , menuRoute)
