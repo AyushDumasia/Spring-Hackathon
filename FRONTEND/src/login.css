@@ -1,0 +1,46 @@
+/* .formArea span{
+    font-size: 13px;
+    margin-top: 5px;
+} */
+
+.inputField{
+    margin: 15px 0px;
+    /* height: 1000px; */
+}
+
+.passwordBox{
+    position: relative;
+    margin: 0;
+}
+
+.input{
+    border: 1px solid #ccc;
+    color: #555;
+    border-radius: 5px;
+    margin-top: 3px;
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    &:focus {
+        border: 1.7px solid var(--secondary-color);
+        outline: none;
+    }
+}
+
+#password{
+    margin-top: 2px;
+}
+.eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-40%);
+    cursor: pointer;
+    user-select: none;
+    font-size: 20px;
+    color: #555;
+}
+
+
+
