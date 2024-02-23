@@ -12,10 +12,11 @@ let getMenu = asyncHandler(async (req ,res) =>{
 
 //NEW  ROUTE
 let createMenu = asyncHandler(async (req, res) => {
-    let { menuItem, reminder } = req.body;
+    let {time, menuItem, reminder } = req.body;
     const newMenu = await Menu.create({
-        menuItem: menuItem,
-        reminder: reminder
+        time : time,
+        menuItem : menuItem,
+        reminder : reminder
     });
     console.log("New menu created:", newMenu);
     res.status(201).json(newMenu);
@@ -24,8 +25,9 @@ let createMenu = asyncHandler(async (req, res) => {
 //UPDATE ROUTE
 let updateMenu = asyncHandler( async (req,res) =>{
     let { id }  = req.params;
-    let { menuItem, reminder } = req.body;
+    let { time, menuItem, reminder } = req.body;
     const updateMenu = await Menu.findByIdAndUpdate(id,{
+        time : time,
         menuItem: menuItem,
         reminder: reminder
     },
