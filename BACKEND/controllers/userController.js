@@ -1,5 +1,7 @@
 const asyncHandler = require('express-async-handler');
 const passport = require('passport');
+const User = require('../models/userSchema.js');
+
 
 
 let signUp = asyncHandler(async (req,res) =>{
@@ -17,6 +19,7 @@ let signUp = asyncHandler(async (req,res) =>{
 
 let  logIn = (passport.authenticate('local', { failureRedirect: '/log-in-failed' }), asyncHandler(async(req, res) => {
     res.json("Welcome");
+    console.log(`current User is ${JSON.stringify(res.locals.currUser)}`);
 }));
 
 let logOut  = (req , res ,next )=>{

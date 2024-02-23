@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Menu = require('../models/menuSchema');
+// const Menu = require('../models/menuSchema');
 const { getMenu , createMenu , updateMenu} = require('../controllers/menuController');
 
 router.use(express.json());
