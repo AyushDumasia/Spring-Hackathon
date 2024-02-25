@@ -5,6 +5,7 @@ const asyncHandler = require('express-async-handler')
 
 //SHOW ROUTE
 let getMenu = asyncHandler(async (req ,res) =>{
+    console.log(req.session.user);
     let menuItems = await Menu.find();
     res.json(menuItems);
 });

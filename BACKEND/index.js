@@ -12,6 +12,7 @@ const bodyParser = require('body-parser');
 const menuRoute  = require('./routes/menu')
 const userRoute = require('./routes/user')
 const tokenRoute = require('./routes/token')
+const homeRoute = require('./routes/home')
 const User = require('./models/userSchema.js')
 
 app.use(methodOverride("_method"));
@@ -24,9 +25,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// const sessionOptions = {
-    
-// }
 app.use(session({
     secret : "mysupersecretcode",
     resave : false,
@@ -37,16 +35,32 @@ app.use(session({
 }));
 app.use(flash());
 
-app.use((req,res,next)=>{
-    res.locals.currUser = req.body;
-    next();
-})
-
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(async function (id, done) {
+    try {
+        const user = await User.findById(id);
+        done(null, user);
+    } catch (err) {
+        done(err, null);
+    }
+});
+
+
+app.use((req,res,next)=>{
+    res.locals.success = req.flash("success");
+    res.locals.failure = req.flash("failure");
+    req.session.user = req.session.newUser;
+    // console.log('Session Data:', req.session);
+    req.session.save();
+    next();
+})
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -82,10 +96,10 @@ app.listen(PORT , (req , res) =>{
 
 
 app.get("/", (req, res) => {
-    res.send("Working");
+    res.render("user/signUp.ejs");
 })
 
-app.use("/api/menu" , menuRoute)
+app.use("/menu" , menuRoute)
 app.use("/" , userRoute)
 app.use("/" , tokenRoute);
-
+app.use("/home" , homeRoute);

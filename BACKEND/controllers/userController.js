@@ -1,69 +1,94 @@
 const asyncHandler = require('express-async-handler');
 const passport = require('passport');
 const User = require('../models/userSchema.js');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 const generateModifiedUsername = (originalUsername) => {
     const uniqueIdentifier = Math.floor(100 + Math.random() * 900);
     return `${originalUsername}_${uniqueIdentifier}`;
 };
 
-let signUp = asyncHandler(async (req,res) =>{
-    let { username , email , phone , isHosteler , password } = req.body;
-    const userAvailable = await User.findOne({email});
-    if(userAvailable){
-        res.json("User Already Exists");
-    }
-    const modifiedUsername = generateModifiedUsername(username);
 
-    const newUser = new User({email , username: modifiedUsername , phone , isHosteler  });
-    const registerUser = await User.register(newUser , password);
-    console.log(req.body);
-    res.json(registerUser);
+let signUp = asyncHandler(async (req, res) => {
+    let { username, email, phone, isHosteler, password } = req.body;
+
+    const emailAvailable = await User.findOne({ email });
+    const phoneAvailable = await User.findOne({ phone });
+
+    if (phoneAvailable || emailAvailable) {
+        req.flash("failure", "User Already Exists");
+        return res.redirect("/sign-up"); 
+    }
+
+    let hashedPassword = await bcrypt.hash(password, saltRounds);
+    let newUsername = generateModifiedUsername(username);
+
+    // Create and save user
+    const newUser = await User.create({
+        username: newUsername,
+        email,
+        password: hashedPassword,
+        phone,
+        isHosteler
+    });
+    req.session.user = newUser;
+    req.session.save();
+    console.log('User object in session:', req.session.user);
+    res.render('./home/home.ejs' , { user: req.session.user });
+    req.flash('success', 'Welcome');
+    // req.flash("success", "Sign Up Successful");
+    // res.redirect("/home");
+
+    // Use req.login for user authentication
+    // req.login(newUser, (err) => {
+    //     if (err) {
+    //         req.flash("failure", "Error during login");
+    //         return res.redirect("/login");
+    //     }
+    //     console.log("User registration and login successful");
+    //     res.redirect("/menu");
+    // });
 });
 
 
-// let  logIn = (passport.authenticate('local', { failureRedirect: '/log-in-failed' }), async(req, res) => {
-//     res.json("Welcome");
-//     console.log(`current User is ${JSON.stringify(res.locals.currUser)}`);
-// });
 
-let logIn = (passport.authenticate("local" , {failureRedirect : '/log-in'}) ,  async (req,res)=>{
-    try{
-        req.flash("success" , "Log In Successfully");
-        // res.redirect(res.locals.redirectURL);
-        res.redirect("/listing");
+let logIn = asyncHandler(async (req, res) => {
+    const { username, password } = req.body;
+    const user = await User.findOne({ username });
 
+    if (!user) {
+        req.flash('failure', 'User Not found');
+        return res.redirect('/login');
     }
-    catch(err){
-        res.send(err.message);  
+
+    const passwordMatch = await bcrypt.compare(password, user.password);
+
+    if (!passwordMatch) {
+        req.flash('failure', 'Wrong Password');
+        return res.redirect('/login');
     }
-    
+    req.session.user = user;
+    req.session.save();
+    console.log('User object in session:', req.session.user);
+    res.render('./home/home.ejs' , { user: req.session.user });
+    req.flash('success', 'Welcome');
 })
 
-// let logIn = (asyncHandler (async(req , res)=>{
-//     let {username , password} = req.body;
-//     if(!username || !password){
-//         res.json("All fields are compulsory")
-//     }
-//     const user = await User.findOne({username});
-//     console.log(user);
-//     if(user){
-//         res.json(user);
-//     }
-//     else{
-//         return;
-//     }
-// } ))
 
-let logOut  = (req , res ,next )=>{
-    req.logout((err) =>{
-        if(err){
-            next();
-        }
-        else{
-            req.flash("success" , "User logged Out");
-            res.redirect("/listing");
-        }
-    })
-}
+
+let logOut  = ((req, res) => {
+    req.logout(); // Passport method to logout
+    req.flash('success', 'Logged out successfully');
+    res.redirect('/');
+});
+
+
+
+
+// <!-- <% if(newUser){    %> -->
+//                 <!-- <%} %> -->
+
+
 module.exports = { signUp , logIn , logOut};

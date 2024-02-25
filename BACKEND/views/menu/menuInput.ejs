@@ -1,0 +1,30 @@
+<%- include("../includes/headerFile.ejs") %>
+
+<title>Add Menu</title>
+</head>
+<body>
+    <div class="formArea">
+        <form method="POST" action="/menu"> 
+            <h1>Menu</h1>
+            <div class='div'>
+                <label for='time' class='label'>What is this for?</label>
+                <select class = 'dropdown' id = 'time' name='time' required>
+                    <option value='Breakfast'>Breakfast</option>
+                    <option value='Lunch'>Lunch</option>
+                    <option value='Dinner'>Dinner</option>
+                </select>
+            </div>
+            <div class='div'>
+                <label for='menuItem' class='label'>What have you prepared, today?</label>
+                <textarea id = 'menuItem' placeholder="Enter today's Menu" rows={8} cols={10} name="menuItem" required></textarea>
+            </div>
+            <div class='div'>
+                <label for='reminder' class='label'>Additional notes</label>
+                <textarea id = 'notes' placeholder="Enter today's Menu" rows={4} cols={10} name="reminder"></textarea>
+            </div>
+            <a href = '/menu' class='closure'>Check Previous Menus</a>
+            <button class='action'>Done</button>
+        </form>
+    </div>
+</body>
+</html>

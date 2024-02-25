@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home Page</title>
+        <link rel="stylesheet" href="./css/home.css" />
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </head>
+    <body>
+        <%= success %>
+        <div class="navbar">
+            <div class="left">
+                <a href="#" class="Hostelly">HOSTELLY</a>
+            </div>
+            <div class="mid">
+                <a href="#" class="Home">Home</a>
+                <a href="#" class="Meal_subscriptions">subscriptions</a>
+                <a href="#" class="Inventery_management">Inventery</a>
+                <a href="#" class="Feedback">Feedback</a>
+                <a href="#" class="Reports">Reports</a>
+            </div>
+                <div class="right">
+                    <% if (user && user.username) { %>
+                        <p><%= user.username %>!</p>
+                    <% } else { %>
+                        <a href="/log-in" class="Login">Login</a>
+                        <a href="/sign-up" class="Register">Register</a>
+                    <% } %>
+                </div>
+        </div>
+        <div class="welcome">
+            <div class="heading">
+                <h1 class="system">Welcome to Hostel Management System</h1>
+            </div>
+            <a href="#" class="learn">Learn More</a>
+        </div>
+    </body>
+</html>

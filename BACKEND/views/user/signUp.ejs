@@ -1,0 +1,47 @@
+<%- include("../includes/headerFile.ejs") %>
+<title>Sign Up Page</title>
+<body>
+    <%- success %>
+    <%- failure %>
+    <div class="formArea">
+        <form method="POST" action="/sign-up">
+            <h1>Sign Up</h1>
+            <span class="closure">Already have an account?
+                &nbsp;
+                <a href="/log-in">Login!</a>
+            </span>
+            <div class="inputField">
+                <div class="div">
+                    <label for="username" class="label">Username</label>
+                    <input class="input" id="username" placeholder="Enter your username" name="username" required>
+                </div>
+                <div class="div">
+                    <label for="email" class="label">Email</label>
+                    <input class="input" id="" placeholder="Enter your Email" name="email" required>
+                </div>
+                <div class="div">
+                    <label for="phone" class="label">Contact Number</label>
+                    <input class="input" id="phone" placeholder="Enter your contact number" name="phone" type="number" required>
+                </div>
+                <div class="div">
+                    <label for="isHosteler" class="label">Type</label>
+                    <select class="dropdown" id="isHosteler" name="isHosteler" required>
+                        <option value="true">Hosteler</option>
+                        <option value="false">Day Scholar</option>
+                    </select>
+                </div>
+                <div class="div">
+                    <label for="password" class="label">Confirm Password</label>
+                    <div class="passwordBox">
+                        <input class="input" id="password" placeholder="Confirm your password" name="password" type="password" required>
+                        <button onclick="toggleShowPassword()" class="eye-icon" id="eye">&#128065;</button>
+                        <button onclick="toggleShowPassword()" class="eye-icon" id="eyeSlash">&#128065;</button>
+                    </div>
+                </div>
+            </div>
+            <button class="action">Login</button>
+        </form>
+    </div>
+    
+</body>
+</html>

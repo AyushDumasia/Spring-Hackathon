@@ -28,7 +28,16 @@ const userSchema = new Schema({
     isHosteler : {
         type : Boolean,
         required : true
-    }
+    },
+    password : {
+        type : String,
+        required : [true , "Please add the  Password"]
+    },
+    history : [{
+        type : Schema.Types.ObjectId,
+        ref : "Menu",
+        required: true,
+    }]
 },
 {
     timestamps  : true
@@ -36,4 +45,4 @@ const userSchema = new Schema({
 
 userSchema.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model("User" , userSchema);
+module.exports = mongoose.model("User" , userSchema);;
