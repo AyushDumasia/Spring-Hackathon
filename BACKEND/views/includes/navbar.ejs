@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <div class="page-1-container">
+        <div class="navbar">
+            <div class="left">
+                <a href="#" class="Hostelly">HOSTELLY</a>
+            </div>
+            <div class="mid">
+                <a href="/home" class="Home">Home</a>
+                <a href="/home/menu" class="Reports">Menu</a>
+                <a href="/home/subscription" class="Meal_subscriptions">subscriptions</a>
+                <a href="#" class="Feedback">Feedback</a>
+            </div>
+                <div class="right">
+                    <% if (user && user.username) { %>
+                        <p><%= user.username %>!</p>
+                    <% } else { %>
+                        <a href="/log-in" class="Login">Login</a>
+                        <a href="/sign-up" class="Register">Register</a>
+                    <% } %>
+                </div>
+        </div>
+</body>
+</html>

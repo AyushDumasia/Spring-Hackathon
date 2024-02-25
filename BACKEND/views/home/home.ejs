@@ -1,40 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Home Page</title>
-        <link rel="stylesheet" href="./css/home.css" />
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    </head>
-    <body>
-        <%= success %>
-        <div class="navbar">
-            <div class="left">
-                <a href="#" class="Hostelly">HOSTELLY</a>
-            </div>
-            <div class="mid">
-                <a href="#" class="Home">Home</a>
-                <a href="#" class="Meal_subscriptions">subscriptions</a>
-                <a href="#" class="Inventery_management">Inventery</a>
-                <a href="#" class="Feedback">Feedback</a>
-                <a href="#" class="Reports">Reports</a>
-            </div>
-                <div class="right">
-                    <% if (user && user.username) { %>
-                        <p><%= user.username %>!</p>
-                    <% } else { %>
-                        <a href="/log-in" class="Login">Login</a>
-                        <a href="/sign-up" class="Register">Register</a>
-                    <% } %>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <%= success %>
+        <%- include("../includes/navbar.ejs") %>
+            <div class="welcome">
+                <div class="heading">
+                    <h2 class="system">Welcome to Hostelly</h2>
+                    <p>Savor a delicious and healthy breakfast at our mess where
+                        every item is prepared fresh daily,
+                        ensuring a delightful start to your day.</p>
                 </div>
-        </div>
-        <div class="welcome">
-            <div class="heading">
-                <h1 class="system">Welcome to Hostel Management System</h1>
+                <img src="/assests/DrawKit-cooking-kitchen-food-vector-illustrations-03.png" alt="kitchen"
+                    class="home-img" loading="lazy">
+                <!-- <a href="#" class="learn">Learn More</a> -->
+            <!-- </div> -->
             </div>
-            <a href="#" class="learn">Learn More</a>
-        </div>
-    </body>
+
+            
+</body>
+
 </html>

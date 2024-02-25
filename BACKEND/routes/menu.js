@@ -9,11 +9,11 @@ router.use(express.json());
 
 router.get('/' ,isLoggedIn, getMenu)
 
-router.get('/addMenu' , isLoggedIn ,(req ,res) =>{
+router.get('/addMenu'  ,(req ,res) =>{
     res.render("./menu/menuInput.ejs")
 })
-router.post('/',isLoggedIn, createMenu);
+router.post('/', createMenu);
 
-router.put("/:id",isLoggedIn, updateMenu)
+router.put("/:id", updateMenu)
 
 module.exports = router;

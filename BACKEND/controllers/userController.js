@@ -60,7 +60,7 @@ let logIn = asyncHandler(async (req, res) => {
 
     if (!user) {
         req.flash('failure', 'User Not found');
-        return res.redirect('/login');
+        return res.redirect('/log-in');
     }
 
     const passwordMatch = await bcrypt.compare(password, user.password);
