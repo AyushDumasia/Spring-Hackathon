@@ -1,0 +1,11 @@
+<%- include("../includes/navbar.ejs") %>
+<title>Qr Token</title>
+</head>
+<body>
+    <div class="qr-container">
+        <h3 class="qr-heading">Scan This QR Code to Get Food</h3>
+        <p class="warning">Make sure to keep this QR code secure.</p>
+        <img class="qr-image" src="<%= qrCodeUrl %>" alt="QR Code">
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<%- include("../includes/navbar.ejs") %>
+<title>History</title>
+</head>
+<body>
+    <div class="main-history-container">
+        <div class="history-container">
+            <% for (let historyItem of history.history) { %>
+                <div class="card">
+                <!-- <div class="card-body"> -->
+                    <h5 class="card-title"><%= historyItem.menuItem %></h5>
+                    <p class="card-text">Time: <%= historyItem.time %></p>
+                    <p class="card-text">Price: ₹<%= historyItem.price %></p>
+                    <p class="card-text">Date: <%= historyItem.Created_At.toLocaleDateString('en-US', { month: 'short', day: 'numeric'}) %></p>
+                <!-- </div> -->
+            </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

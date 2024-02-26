@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
-
+const Menu = require('./menuSchema.js')
 
 const userSchema = new Schema({
     // username : {
@@ -33,12 +33,13 @@ const userSchema = new Schema({
     //     type : String,
     //     required : [true , "Please add the  Password"]
     // },
-    history : [{
-        type : Schema.Types.ObjectId,
-        ref : "Menu",
-        required: true,
-        default : false
-    }]
+    history: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Menu"
+        }
+    ]
+    
 },
 {
     timestamps  : true

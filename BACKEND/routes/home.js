@@ -13,16 +13,15 @@ router.get("/", getHome);
 
 router.post("/" , postHome)
 
-router.get("/subscription" ,isLoggedIn,  subscription)
+router.get("/subscription" ,  subscription)
 
 router.get("/menu" , menuPage)
 
 
-router.get("/history",isLoggedIn,asyncHandler(async (req, res) => {
+router.get("/history", isLoggedIn, asyncHandler(async (req, res) => {
     const user = req.user;
-    const populatedUser = await User.findById(user._id);
-
-    res.json(populatedUser);
+    const populatedUser = await User.findById(user._id).populate('history');
+    res.render("./home/history.ejs" , {history : populatedUser})
 }));
 
 
@@ -56,14 +55,7 @@ router.patch("/menu/:id", isLoggedIn, asyncHandler(async (req, res) => {
                 Time : ${newData.time}
                 Price : ${newData.price}`;
             const qrCodeUrl = await qrcode.toDataURL(Message);
-            return res.json({
-                token: newData.token,
-                userData: {
-                    username: newData.username,
-                    isHosteler: newData.isHosteler
-                },
-                qrCodeUrl: qrCodeUrl
-            });
+            res.render("./home/QRtoken.ejs" , {qrCodeUrl});
         } else {
             req.flash("success", "Already Added");
         }
