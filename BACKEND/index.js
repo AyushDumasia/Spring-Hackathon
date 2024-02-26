@@ -95,3 +95,8 @@ app.use("/menu" , menuRoute)
 app.use("/" , userRoute)
 app.use("/" , tokenRoute);
 app.use("/home" , homeRoute);
+
+
+app.get("*" , async (req,res) =>{
+    res.render("home/error.ejs");
+})

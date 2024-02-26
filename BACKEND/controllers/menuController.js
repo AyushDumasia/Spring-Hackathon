@@ -5,10 +5,13 @@ const asyncHandler = require('express-async-handler')
 
 //SHOW ROUTE
 let getMenu = asyncHandler(async (req ,res) =>{
-    console.log(req.session.user);
+    // console.log(req.session.user);
     let menuItems = await Menu.find();
 });
 
+let showForm = asyncHandler((req ,res) =>{
+    res.render("./menu/menuInput.ejs")
+});
 
 //NEW  ROUTE
 let createMenu = asyncHandler(async (req, res) => {
@@ -18,7 +21,7 @@ let createMenu = asyncHandler(async (req, res) => {
         menuItem : menuItem,
         price : price
     });
-    console.log("New menu created:", newMenu);
+    // console.log("New menu created:", newMenu);
     res.status(201).redirect("/home/menu");
 });
 
@@ -39,4 +42,4 @@ let updateMenu = asyncHandler( async (req,res) =>{
 });
 
 
-module.exports = {getMenu ,createMenu , updateMenu}
+module.exports = {getMenu ,createMenu , updateMenu , showForm}

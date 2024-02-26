@@ -23,7 +23,10 @@
                 <a href="/home/menu" class="Reports">Menu</a>
                 <a href="/home/subscription" class="Meal_subscriptions">subscriptions</a>
                 <a href="/home/history">History</a>
-                <a href="#" class="Feedback">Feedback</a>
+                <%if(currUser && currUser.username == "admin"){%>
+                    <a href="/menu/addMenu">Add Menu</a>
+                <%}%>
+                <a href="/home/feedback" class="Feedback">Feedback</a>
             </div>
             <div class="right">
                 <% if (!currUser) { %>

@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const passportLocalMongoose = require('passport-local-mongoose');
 
 const menuSchema = new Schema({
     Created_At : {
         type : Date,
-        default : () => new Date().toISOString().slice(0, 10)
+        default : () => new Date()
     },
     time : {
         type : String,

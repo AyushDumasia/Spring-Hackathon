@@ -26,7 +26,7 @@ let signUp = (asyncHandler(async (req, res) => {
             req.flash("success", "User was Registered");
         });
 
-        console.log(registerUser);
+        // console.log(registerUser);
         req.flash("failure", "User was Registered");
         res.redirect("/home");
     } catch (e) {
