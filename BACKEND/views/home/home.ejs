@@ -1,4 +1,6 @@
 <%- include("../includes/navbar.ejs") %>
+<link rel="stylesheet" href="/css/review.css">
+<link rel="stylesheet" href="/css/footer.css">
 <title>Home Page</title>
 </head>
 
@@ -19,7 +21,32 @@
                 <!-- <a href="#" class="learn">Learn More</a> -->
             <!-- </div> -->
             </div>
-
+            <div class="feedback-container">
+                <!-- <div> -->
+                <%for(let feedbacks of feedback) {%>
+                    <div class="feedback-card">
+                        <h2 class="feedback-heading">
+                            <%=feedbacks.author.username %>
+                        </h2>
+                        <hr />
+                        <br>
+                        <div class="feedback-comment">
+                            <p>
+                                <%=feedbacks.comment %>
+                            </p>
+                        </div>
+                        <p class="date">Reviewed On <%= feedbacks.Created_At.toLocaleDateString('en-US', { day: 'numeric'
+                                ,month: 'numeric' , year : 'numeric' })%>
+                        </p>
+                        <div class="feedback-rating-star">
+                            <p class="starability-result" data-rating="<%= feedbacks.rating%>">
+                            </p>
+                        </div>
+                    </div>
+                    <%}%>
+                        <!-- </div> -->
+            </div>
+<%- include("../includes/footer.ejs") %>
             
 </body>
 

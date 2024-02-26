@@ -7,7 +7,8 @@ const Feedback = require('../models/feedbackSchema.js')
 
 
 let getHome = asyncHandler(async(req, res) => {
-    res.render("./home/home.ejs");
+    let feedback = await Feedback.find().populate('author');
+    res.render("./home/home.ejs" , {feedback});
 });
 
 let postHome = asyncHandler(async(req ,res)=>{
