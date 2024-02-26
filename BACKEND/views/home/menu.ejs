@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/home.css">
-    <title>Menu</title>
+<%- include("../includes/navbar.ejs") %>
+<title>Menu</title>
 </head>
 <body>
-    <%- include("../includes/navbar.ejs") %>
+    <%- include("../flash/success.ejs") %>
+    <%- include("../flash/failure.ejs") %>
     <div class="menu-item-container">
         <div class="item-heading">
             <h1>Today's Menu</h1>
-            <p>Enjoy a healthy and tasty breakfast in our mess.We make all items
+            <p>Enjoy a healthy and tasty food in our mess.We make all items
                 fresh daily.</p>
         </div>
         <%
@@ -42,36 +38,38 @@ switch (menus.time.toUpperCase()) {
 }
 
 function displayMenuItem(menu) {
-if (menu) {
-%>
-<div class="item-container">
-    <div class="item-box">
-        <h3><%= menu.time %></h3>
-        <h5><%= menu.menuItem %></h5>
-        <p>₹80</p>
-        <form action="">
-            <button>Order Now</button>
-        </form>
-    </div>
-    <hr>
-</div>
-<%
-} else {
-%>
-<div class="item-container">
-    <div class="item-box">
-        <h3>Not Update</h3>
-        <h5>Not Update</h5>
-        <p>₹80</p>
-        <form action="">
-            <button>Order Now</button>
-        </form>
-    </div>
-    <hr>
-</div>
-<%
+    if (menu && menu._id) {
+        %>
+        <div class="item-container">
+            <div class="item-box">
+                <h3><%= menu.time %></h3>
+                <h5><%= menu.menuItem %></h5>
+                <p>₹<%= menu.price %></p>
+                <form method="POST" action="/home/menu/<%= menu._id %>?_method=PATCH">
+                    <button class="order-now">Order Now</button>
+                </form>
+            </div>
+            <hr>
+        </div>
+        <%
+    } else {
+        %>
+        <div class="item-container">
+            <div class="item-box">
+                <h3>Not Update</h3>
+                <h5>Not Update</h5>
+                <p>Not Update</p>
+                <!-- You might want to handle this case differently, depending on your requirements -->
+                <form method="POST" action="/home/menu/unknownId?_method=PATCH">
+                    <button class="order-now">Order Now</button>
+                </form>
+            </div>
+            <hr>
+        </div>
+        <%
+    }
 }
-}
+
 
 displayMenuItem(latestBreakfast);
 displayMenuItem(latestLunch);

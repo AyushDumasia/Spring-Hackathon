@@ -1,8 +1,8 @@
 <%- include("../includes/headerFile.ejs") %>
 <title>Sign Up Page</title>
 <body>
-    <%- success %>
-    <%- failure %>
+    <%- include("../flash/failure.ejs") %>
+    <%- include("../flash/success.ejs") %>
     <div class="formArea">
         <form method="POST" action="/sign-up">
             <h1>Sign Up</h1>

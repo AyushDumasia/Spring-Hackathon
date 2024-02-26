@@ -4,7 +4,8 @@ const router = express.Router();
 // const session = require('express-session');
 // const passport = require('passport');
 const asyncHandler = require('express-async-handler');
-const { signUp, logIn, logOut } = require('../controllers/userController.js');
+const { signUp ,logIn , logOut } = require('../controllers/userController.js');
+
 const passport = require('passport');
 
 
@@ -19,8 +20,12 @@ router.get("/log-in" ,asyncHandler( (req ,res) =>{
     res.render("./user/logIn.ejs")
 }))
 
-router.post("/log-in", logIn);
+router.post("/log-in", passport.authenticate("local" , {failureRedirect : "/log-in" , failureFlash : true}), asyncHandler (async (req ,res)=>{
+    req.flash("success" , "Welcome To Hostelly")
+    res.redirect("/home");
+}));
 
 router.get("/log-out" , logOut )
 
 module.exports = router;
+

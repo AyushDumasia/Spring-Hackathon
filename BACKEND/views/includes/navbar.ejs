@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
@@ -15,16 +22,21 @@
                 <a href="/home" class="Home">Home</a>
                 <a href="/home/menu" class="Reports">Menu</a>
                 <a href="/home/subscription" class="Meal_subscriptions">subscriptions</a>
+                <a href="/home/history">History</a>
                 <a href="#" class="Feedback">Feedback</a>
             </div>
-                <div class="right">
-                    <% if (user && user.username) { %>
-                        <p><%= user.username %>!</p>
-                    <% } else { %>
+            <div class="right">
+                <% if (!currUser) { %>
+                    <p>
                         <a href="/log-in" class="Login">Login</a>
                         <a href="/sign-up" class="Register">Register</a>
+                    </p>
+                    <% } else { %>
+                        <%= currUser.username %>
+                        <a href="/log-out" class="Register">Log Out</a>
                     <% } %>
-                </div>
+            </div>
         </div>
+    <hr>
 </body>
 </html>

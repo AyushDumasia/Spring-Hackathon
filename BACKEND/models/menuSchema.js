@@ -15,13 +15,11 @@ const menuSchema = new Schema({
         type : String, 
         required : true
     },
-    reminder : {
-        type : String
+    price : {
+        type : String,
+        required : true
     },
-    saved : {
-        type : Boolean,
-        default : false
-    }
+
 },
 {
     timestamps : true

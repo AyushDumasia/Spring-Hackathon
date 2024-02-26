@@ -25,39 +25,31 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(session({
+
+const sessionOption = {
     secret : "mysupersecretcode",
     resave : false,
     saveUninitialized : true,
     cookie : {
         httpOnly : true
     }
-}));
+};
+app.use(session(sessionOption));
 app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
-});
 
-passport.deserializeUser(async function (id, done) {
-    try {
-        const user = await User.findById(id);
-        done(null, user);
-    } catch (err) {
-        done(err, null);
-    }
-});
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 
 app.use((req,res,next)=>{
     res.locals.success = req.flash("success");
     res.locals.failure = req.flash("failure");
-    req.session.user = req.session.newUser;
-    // console.log('Session Data:', req.session);
-    req.session.save();
+    res.locals.currUser = req.user;
+    // req.session.save();
     next();
 })
 
@@ -86,7 +78,7 @@ main()
 const PORT = 3000;
 app.listen(PORT , (req , res) =>{
     try{
-        console.log("Server is Listing on 3000 Port");
+        console.log(`Server is Listing on ${PORT} Port`);
     }
     catch(err){
         console.log(err.message);
