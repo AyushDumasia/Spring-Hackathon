@@ -12,7 +12,7 @@ const bodyParser = require('body-parser');
 const menuRoute  = require('./routes/menu')
 const userRoute = require('./routes/user')
 const tokenRoute = require('./routes/token')
-const homeRoute = require('./routes/home')
+const homeRoute = require('./routes/home.js')
 const User = require('./models/userSchema.js')
 
 app.use(methodOverride("_method"));

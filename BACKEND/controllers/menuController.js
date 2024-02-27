@@ -26,6 +26,12 @@ let createMenu = asyncHandler(async (req, res) => {
     res.status(201).redirect("/home/menu");
 });
 
+let getUpdatePage = asyncHandler(async(req , res)=>{
+    let { id } = req.params;
+    let menu = await Menu.findById(id);
+    res.render("./home/updatePage.ejs" , {menu});
+})
+
 //UPDATE ROUTE
 let updateMenu = asyncHandler( async (req,res) =>{
     let { id }  = req.params;
@@ -42,5 +48,11 @@ let updateMenu = asyncHandler( async (req,res) =>{
     res.json(updateMenu);
 });
 
+let deleteMenu = asyncHandler(async(req ,res)=>{
+    let { id } = req.params;
+    console.log(id);
+    let result = await Menu.findByIdAndDelete(id);
+    console.log(result);
+})
 
-module.exports = {getMenu ,createMenu , updateMenu , showForm}
+module.exports = { getMenu,createMenu ,getUpdatePage, updateMenu , showForm , deleteMenu}

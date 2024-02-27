@@ -48,6 +48,14 @@ function displayMenuItem(menu) {
                 <form method="POST" action="/home/menu/<%= menu._id %>?_method=PATCH">
                     <button class="order-now">Order Now</button>
                 </form>
+                <%if(currUser && currUser.username == "admin"){%>
+                    <form action="/menu/<%=menu._id%>?method=DELETE" method="POST">
+                        <button class="order-now">Delete</button>
+                    </form>
+                    <form action="/menu/edit/<%=menu._id%>?method=UPDATE" method="GET">
+                        <button class="order-now">Update</button>
+                    </form>
+                <%}%>
             </div>
             <hr>
         </div>

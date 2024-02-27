@@ -1,18 +1,20 @@
 const isLoggedIn = (req, res, next) => {
     if(!req.isAuthenticated()){
-        req.session.directUrl = req.originalUrl;
+        req.session.redirectUrl = req.originalUrl;
         req.flash("failure" , "You must be Logged In");
-        return res.redirect("/directUrl");
+        return res.redirect("/home");
     }
     return next();
 };
+module.exports = isLoggedIn;
 
-const saveRedirectUrl = (req , res ,next) =>{
-    if(req.session.directUrl){
-        res.locals.directUrl = req.session.directUrl
+module.exports.saveRedirectUrl = (req , res , next) =>{
+    if(req.session.redirectUrl){
+        res.locals.redirectUrl  = req.session.redirectUrl
     }
     next();
 }
 
 
-module.exports = { isLoggedIn  , saveRedirectUrl }
+
+
