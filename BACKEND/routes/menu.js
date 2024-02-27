@@ -7,7 +7,7 @@ const isLoggedIn = require('../middlewares/isLoggedIn');
 
 router.use(express.json());
 
-router.get('/' ,isLoggedIn, getMenu)
+router.get('/' , getMenu)
 
 router.get('/addMenu' ,showForm)
 

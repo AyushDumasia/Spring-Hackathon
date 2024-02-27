@@ -33,7 +33,7 @@
     margin-bottom: 20px;
 }
 
-.bottom {
+.footer-bottom {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -42,7 +42,7 @@
 .contact-card {
     display: flex;
     align-items: center;
-    width: 325px;
+    width: 450px;
     padding: 10px;
     border-radius: 10px;
 }
@@ -54,16 +54,16 @@
     font-size: 22px;
 }
 
-.contact-card > .right > p {
+.contact-card > .footer-right > p {
     width: 100%;
 }
 
-.left,
-.right {
+.footer-left,
+.footer-right {
     margin: 10px;
 }
 
-.right > :not(p:last-child) {
+.footer-right > :not(p:last-child) {
     margin-bottom: 10px;
 }
 

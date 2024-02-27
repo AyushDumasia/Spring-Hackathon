@@ -7,6 +7,7 @@ const asyncHandler = require('express-async-handler')
 let getMenu = asyncHandler(async (req ,res) =>{
     // console.log(req.session.user);
     let menuItems = await Menu.find();
+    res.render("./home/adminHistory.ejs" , {history : menuItems})
 });
 
 let showForm = asyncHandler((req ,res) =>{

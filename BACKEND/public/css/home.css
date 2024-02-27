@@ -8,6 +8,14 @@
 body{
     overflow-x: hidden;
 }
+
+:root {
+    --primary-color: rgb(239, 241, 237);
+    --secondary-color: rgb(30, 46, 222);
+    --shade-of-secondary-color: rgb(20, 30, 144);
+    --ternary-color: rgb(23, 15, 17);
+}
+
 .page-1-container{
     height: 100vh;
 }
@@ -36,10 +44,16 @@ body{
 
 }
 .Register{
+    font-size: 14px;
     color: white;
     padding: 7px;
     border-radius : 5px;
-    background-color: rgb(30, 46, 222);
+    background-color: var(--secondary-color);
+}
+
+.Login{
+    margin-right: 5px;
+    font-size: 14px;
 }
 
 .system{
@@ -71,6 +85,7 @@ body{
 }
 
 .home-img{
+    mix-blend-mode: multiply;
     transform: scale(0.7)
 }
 
@@ -78,7 +93,7 @@ body{
     color: white;
     padding: 7px;
     border-radius : 5px;
-    background-color: rgb(30, 46, 222);
+    background-color: var(--secondary-color);
     width: 100px;
     margin: 50px auto;
     text-align: center;
@@ -135,8 +150,8 @@ body{
 }
 
 .success{
-    color: #6ea8fe;
-    background-color: rgb(3, 22, 51);
+    color: #ffffff;
+    background-color: var(--secondary-color);
     border: 1px solid #084298;
 }
 
