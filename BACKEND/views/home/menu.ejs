@@ -49,7 +49,7 @@ function displayMenuItem(menu) {
                     <button class="order-now">Order Now</button>
                 </form>
                 <%if(currUser && currUser.username == "admin"){%>
-                    <form action="/menu/<%=menu._id%>?method=DELETE" method="POST">
+                    <form action="/menu/<%=menu._id%>?_method=DELETE" method="POST">
                         <button class="order-now">Delete</button>
                     </form>
                     <form action="/menu/edit/<%=menu._id%>?method=UPDATE" method="GET">

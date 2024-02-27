@@ -52,7 +52,7 @@ let deleteMenu = asyncHandler(async(req ,res)=>{
     let { id } = req.params;
     console.log(id);
     let result = await Menu.findByIdAndDelete(id);
-    console.log(result);
+    res.redirect("/home/menu");
 })
 
 module.exports = { getMenu,createMenu ,getUpdatePage, updateMenu , showForm , deleteMenu}
