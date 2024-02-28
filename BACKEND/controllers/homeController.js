@@ -46,13 +46,13 @@ let addItem = asyncHandler(async (req, res) => {
             return res.redirect("/home/history");
         }
         const user = req.user;
-
         const preHistory = user.history.find(historyItem => historyItem._id.equals(item._id));
-        
         if (!preHistory) {
             user.history.push(item);
+            item.attendance.push(user);
             // let newToken = uuid.v4();
             await user.save();
+            await item.save();
             let newData = {
                 username: user.username,
                 isHosteler: user.isHosteler,
@@ -112,4 +112,12 @@ let addFeedback = async(req , res) =>{
     res.redirect("/home/feedback")
 };
 
-module.exports = { getHome , postHome , subscription , menuPage , historyPage , addItem , addFeedback , getFeedback}
+
+let getAttendance = async(req ,res) =>{
+    let { id } = req.params;
+    let item = await Menu.findOne({ _id: id }).populate('attendance');
+    res.render("./home/adminAttendance.ejs" , {items : item , dataItem : item});
+    // res.send(item.attendance.username);
+}
+
+module.exports = { getHome , postHome , subscription , menuPage , historyPage , addItem , addFeedback , getFeedback , getAttendance}

@@ -7,16 +7,16 @@
 
 :root {
     --primary-color: rgb(239, 241, 237);
-    --secondary-color: rgb(136, 190, 209);
+    --secondary-color: #1e2ede;
     --shade-of-secondary-color: rgb(20, 30, 144);
     --ternary-color: rgb(23, 15, 17);
 }
 
 .feedback-container {
     display: flex;
-    width: 95%;
+    width: 98%;
     margin: 100px auto;
-    background-color: black;
+    border:1px solid black;
     padding: 20px;
     border-radius: 8px;
     overflow-x: hidden;

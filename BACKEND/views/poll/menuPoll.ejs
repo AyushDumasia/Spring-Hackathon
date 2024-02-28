@@ -1,0 +1,45 @@
+<%- include("../includes/navbar.ejs") %>
+    <title>Menu Poll</title>
+    </head>
+    <body>
+        <%- include("../flash/success.ejs") %>
+        <%- include("../flash/failure.ejs") %>
+        <% if(pollItem) {%>
+            <h1 class="poll-heading"><%= pollItem.time %></h1>
+            <div class="menu-poll-container">
+            <form action="/menu/getPoll" method="POST" class="poll-form">
+                <div class="poll-menu-box">
+                    <input type="radio" name="menu" id="category_1" value="<%= pollItem.category_1 %>">
+                    <label class="poll-label" for="category_1"><%= pollItem.category_1 %></label>
+                </div>
+                <div class="poll-menu-box">
+                    <input type="radio" name="menu" id="category_2" value="<%= pollItem.category_2 %>">
+                    <label class="poll-label" for="category_2"><%= pollItem.category_2 %></label>
+                </div>
+                <div class="poll-menu-box">
+                    <input type="radio" name="menu" id="category_3" value="<%= pollItem.category_3 %>">
+                    <label class="poll-label" for="category_3"><%= pollItem.category_3 %></label>
+                </div>
+                <button class="poll-btn">Submit Poll</button>
+            </form>            
+        </div>
+        <% }else { %>
+            <h1 class="poll-heading">Not Updated</h1>
+            <div class="menu-poll-container">
+            <form action="/menu/getPoll" method="POST" class="poll-form">
+                <div class="poll-menu-box">
+                    <input type="radio" name="menu" id="category_1" >
+                    <label class="poll-label" for="category_1">Not Updated</label>
+                </div>
+                <div class="poll-menu-box">
+                    <input type="radio" name="menu" id="category_2" >
+                    <label class="poll-label" for="category_2">Not Updated</label>
+                </div>
+                <div class="poll-menu-box">
+                    <input type="radio" name="menu" id="category_3" >
+                    <label class="poll-label" for="category_3">Not Updated</label>
+                </div>
+            </form>           
+            <% }%>
+    </body>
+    </html>

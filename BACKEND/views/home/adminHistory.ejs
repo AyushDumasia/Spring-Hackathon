@@ -17,6 +17,9 @@
                         <p class="card-text">Date: <%= historyItem.Created_At.toLocaleDateString('en-US', { month: 'short', day: 'numeric'}) %></p>
                     </b>
                         <!-- </div> -->
+                        <form action="/home/attendance/<%= historyItem._id %>">
+                            <button>Attendance</button>
+                        </form>
             </div>
             <% } %>
         </div>

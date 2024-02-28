@@ -1,0 +1,31 @@
+<%- include("../includes/headerFile.ejs") %>
+    <title>Poll Menu</title>
+</head>
+<body>
+    <div class="formArea">
+        <form method="POST" action="/menu/poll"> 
+            <h1>Poll</h1>
+            <div class='div'>
+                <label for='time' class='label'>What is this for?</label>
+                <select class = 'dropdown' id = 'time' name='time' required>
+                    <option value='Breakfast'>Breakfast</option>
+                    <option value='Lunch'>Lunch</option>
+                    <option value='Dinner'>Dinner</option>
+                </select>
+            </div>
+            <div class='div'>
+                <label for='menuItem' class='label'>Menu Item 1 :</label>
+                <textarea id = 'menuItem' placeholder="Enter today's Menu" rows={8} cols={10} name= "category_1" required></textarea>
+            </div>
+            <div class='div'>
+                <label for='menuItem' class='label'>Menu Item 2 :</label>
+                <textarea id = 'menuItem' placeholder="Enter today's Menu" rows={8} cols={10}  name="category_2" required></textarea>
+            </div><div class='div'>
+                <label for='menuItem' class='label'>Menu Item 3 :</label>
+                <textarea id = 'menuItem' placeholder="Enter today's Menu" rows={8} cols={10} name="category_3" required></textarea>
+            </div>
+            <button class='action'>Done</button>
+        </form>
+    </div>
+</body>
+</html>

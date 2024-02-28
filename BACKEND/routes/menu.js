@@ -4,19 +4,20 @@ const router = express.Router();
 const { getMenu, createMenu , updateMenu , showForm, deleteMenu , getUpdatePage} = require('../controllers/menuController');
 const validateToken = require('../middlewares/validateToken');
 const isLoggedIn = require('../middlewares/isLoggedIn');
+const { adminValidation } = require('../middlewares/adminValidation');
 
 router.use(express.json());
 
-router.get('/' , getMenu)
+router.get('/' ,adminValidation, getMenu)
 
-router.get('/addMenu' ,showForm)
+router.get('/addMenu' , adminValidation,showForm)
 
-router.get('/edit/:id' , getUpdatePage)
+router.get('/edit/:id' ,adminValidation, getUpdatePage)
 
-router.post('/', createMenu)
+router.post('/',adminValidation, createMenu)
 
-router.put("/:id", updateMenu)
+router.put("/:id", adminValidation ,updateMenu)
 
-router.delete("/:id" , deleteMenu)
+router.delete("/:id" ,adminValidation, deleteMenu)
 
 module.exports = router;

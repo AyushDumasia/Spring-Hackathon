@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const User = require('./userSchema');
 
 const menuSchema = new Schema({
     Created_At : {
@@ -18,6 +19,12 @@ const menuSchema = new Schema({
         type : String,
         required : true
     },
+    attendance : [
+        {
+            type : Schema.Types.ObjectId,
+            ref : "User"
+        }
+    ]
 
 },
 {

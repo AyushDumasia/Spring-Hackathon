@@ -13,6 +13,7 @@ const menuRoute  = require('./routes/menu')
 const userRoute = require('./routes/user')
 const tokenRoute = require('./routes/token')
 const homeRoute = require('./routes/home.js')
+const pollRoute = require('./routes/poll.js')
 const User = require('./models/userSchema.js')
 
 app.use(methodOverride("_method"));
@@ -95,6 +96,7 @@ app.use("/menu" , menuRoute)
 app.use("/" , userRoute)
 app.use("/" , tokenRoute);
 app.use("/home" , homeRoute);
+app.use("/menu" ,pollRoute );
 
 
 app.get("*" , async (req,res) =>{

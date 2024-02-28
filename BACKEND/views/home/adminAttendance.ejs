@@ -1,0 +1,16 @@
+<%- include("../includes/navbar.ejs") %>
+<title>Attendance</title>
+</head>
+<body>
+    <div class="attendance-container">
+        <h1 class="attendance-heading">Date : <%= dataItem.createdAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric'}) %></h1>
+        <h2 class="dataItem-heading"><%= dataItem.menuItem %>
+            <span>
+                ₹<%= dataItem.price %></h2>
+            </span>
+        <% for(items of items.attendance) {%>
+        <p class="attendance-card"><%= items.username %></p>
+        <% } %>
+    </div>
+</body>
+</html>
