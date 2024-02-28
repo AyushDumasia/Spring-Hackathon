@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
-// const Menu = require('../models/menuSchema');
 const { getMenu, createMenu , updateMenu , showForm, deleteMenu , getUpdatePage} = require('../controllers/menuController');
-const validateToken = require('../middlewares/validateToken');
-const isLoggedIn = require('../middlewares/isLoggedIn');
 const { adminValidation } = require('../middlewares/adminValidation');
 
 router.use(express.json());

@@ -304,3 +304,11 @@ input[type="radio"] {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     border-bottom   : 2px solid black;
 }
+
+.attendance-btn{
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: var(--secondary-color);
+}
