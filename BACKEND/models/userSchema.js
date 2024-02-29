@@ -1,18 +1,20 @@
 // const { bool } = require('joi');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const validator = require('validator');
 const passportLocalMongoose = require('passport-local-mongoose');
 const Menu = require('./menuSchema.js')
 
 const userSchema = new Schema({
-    // username : {
-    //     type : String,
-    //     required : [true , "Please add the  Username"]
-    // },
     email : {
         type : String,
         required : [true , "Please add email contact email"],
-        unique : [true , "Email already Register"]
+        unique : [true , "Email already Register"],
+        validate(value){
+            if(!validator.isEmail(value)){
+                throw new Error("Email is Invalid")
+            }
+        }
     },
     phone : {
         type : String,
@@ -29,10 +31,6 @@ const userSchema = new Schema({
         type : Boolean,
         required : true
     },
-    // password : {
-    //     type : String,
-    //     required : [true , "Please add the  Password"]
-    // },
     history: [
         {
             type: Schema.Types.ObjectId,

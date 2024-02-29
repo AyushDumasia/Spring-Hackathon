@@ -17,11 +17,11 @@
                 </div>
                 <div class="div">
                     <label for="email" class="label">Email</label>
-                    <input class="input" id="" placeholder="Enter your Email" name="email" required>
+                    <input class="input" id="" placeholder="Enter your Email" name="email"  required>
                 </div>
                 <div class="div">
                     <label for="phone" class="label">Contact Number</label>
-                    <input class="input" id="phone" placeholder="Enter your contact number" name="phone" type="number" required>
+                    <input class="input" id="phone" placeholder="Enter your contact number" name="phone" type="number" min="10" max="10" required>
                 </div>
                 <div class="div">
                     <label for="isHosteler" class="label">Type</label>
@@ -33,7 +33,7 @@
                 <div class="div">
                     <label for="password" class="label">Confirm Password</label>
                     <div class="passwordBox">
-                        <input class="input" id="password" placeholder="Confirm your password" name="password" type="password" required>
+                        <input class="input" id="password" placeholder="Confirm your password" name="password" type="password" min="5" max="10" required>
                         <button onclick="toggleShowPassword()" class="eye-icon" id="eye">&#128065;</button>
                         <button onclick="toggleShowPassword()" class="eye-icon" id="eyeSlash">&#128065;</button>
                     </div>
