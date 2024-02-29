@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler');
 const passport = require('passport');
+const nodemailer = require('nodemailer')
 const User = require('../models/userSchema.js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
@@ -14,6 +15,25 @@ const generateModifiedUsername = (originalUsername) => {
 let signUp = (asyncHandler(async (req, res) => {
     try {
         let { username, email, phone, isHosteler, password } = req.body;
+        let testAccount = await nodemailer.createTestAccount();
+        const transporter = nodemailer.createTransport({
+            host: 'smtp.ethereal.email',
+            port: 587,
+            auth: {
+                user: 'dennis.bernier@ethereal.email',
+                pass: 'wRTtNZKGhH93Ky1zGz'
+            }
+        });
+        
+        const info = await transporter.sendMail({
+            from: '"Ayush Dumasia" <dennis.bernier@ethereal.email>', 
+            to: email,
+            subject: "Welcome..",
+            text: `You have successfully create your account in a Hostelly , Here is Your username : ${username} and Password : ${password}` ,
+            html: `<b>You have successfully create your account in a Hostelly , Here is Your username : ${username} and Password : ${password}</b>`,
+        });
+
+        console.log("Message sent: %s", info.messageId);
 
         const newUser = new User({ username, email, phone, isHosteler });
 
