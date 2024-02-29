@@ -11,6 +11,9 @@
     --shade-of-secondary-color: rgb(20, 30, 144);
     --ternary-color: rgb(23, 15, 17);
 }
+/* :root{
+    --secondary-color : #1D2A3A;
+} */
 
 .largeContainer{
     background-color: var(--primary-color);

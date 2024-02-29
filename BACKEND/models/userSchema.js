@@ -10,11 +10,11 @@ const userSchema = new Schema({
         type : String,
         required : [true , "Please add email contact email"],
         unique : [true , "Email already Register"],
-        validate(value){
-            if(!validator.isEmail(value)){
-                throw new Error("Email is Invalid")
-            }
-        }
+        // validate(value){
+        //     if(!validator.isEmail(value)){
+        //         throw new Error("Email is Invalid")
+        //     }
+        // }
     },
     phone : {
         type : String,

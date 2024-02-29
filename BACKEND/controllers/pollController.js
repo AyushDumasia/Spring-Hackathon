@@ -4,6 +4,12 @@ const asyncHandler = require('express-async-handler')
 const isLoggedIn = require('../middlewares/isLoggedIn.js');
 const PollResult = require('../models/pollResultSchema.js');
 
+let seePoll = (asyncHandler(async(req , res) =>{
+    let pollResults = await PollResult.find();
+    console.log(pollResults);
+}))
+
+
 
 let getPollMenu = (asyncHandler(async(req , res) => {
     res.render("./poll/pollMenu.ejs");
@@ -41,4 +47,4 @@ const sendPoll = asyncHandler(async (req, res) => {
 });
 
 
-module.exports = { getPollMenu , postPollMenu , pollMenu , sendPoll};
+module.exports = { seePoll ,getPollMenu , postPollMenu , pollMenu , sendPoll};

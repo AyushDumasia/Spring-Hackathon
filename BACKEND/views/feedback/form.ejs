@@ -5,6 +5,8 @@
     </head>
 
     <body>
+        <%- include("../flash/success.ejs") %>
+        <%- include("../flash/failure.ejs") %>
         <div class="feedback-form-container">
             <form action="/home/feedback" method="POST">
                 <fieldset class="starability-basic">
@@ -25,7 +27,7 @@
                 <div class="comment-section-container">
                     <label for="comment">Comment : </label>
                     <br>
-                    <textarea name="comment" id="comment" cols="50" rows="2"></textarea>
+                    <textarea name="comment" id="comment" cols="50" rows="2" required></textarea>
                 </div>
                 <button class="sub-btn-feedback">Submit Feedback</button>
             </form>
@@ -35,9 +37,14 @@
             <!-- <div> -->
             <%for(let feedbacks of feedback) {%>
                 <div class="feedback-card">
-                    <h2 class="feedback-heading">
-                        <%=feedbacks.author.username %>
-                    </h2>
+                    <% if(feedbacks.author) { %>
+                        <h2 class="feedback-heading">
+                            <%= feedbacks.author.username %>
+                        </h2>
+                    <% } else { %>
+                        <h2 class="feedback-heading">User not found</h2>
+                    <% } %>
+                    
                     <hr />
                     <br>
                     <div class="feedback-comment">

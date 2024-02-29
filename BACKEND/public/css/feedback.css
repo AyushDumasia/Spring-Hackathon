@@ -228,6 +228,9 @@ screen and (min-resolution: 192dpi) {
     --ternary-color: rgb(23, 15, 17);
 }
 
+/* :root{
+    --secondary-color : #1D2A3A;
+} */
 
 .sub-btn-feedback{
     padding: 8px;

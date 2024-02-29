@@ -86,10 +86,8 @@ app.listen(PORT , (req , res) =>{
     }
 })
 
-
-
 app.get("/", (req, res) => {
-    res.render("user/signUp.ejs");
+    res.redirect("/home");
 })
 
 app.use("/menu" , menuRoute)

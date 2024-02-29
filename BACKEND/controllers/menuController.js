@@ -22,7 +22,7 @@ let createMenu = asyncHandler(async (req, res) => {
         menuItem : menuItem,
         price : price
     });
-    // console.log("New menu created:", newMenu);
+    req.flash("success" , "Menu added successfully")
     res.status(201).redirect("/home/menu");
 });
 

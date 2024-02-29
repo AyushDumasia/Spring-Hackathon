@@ -7,15 +7,19 @@
             <% for (let historyItem of history) { %>
                 <div class="card">
                 <!-- <div class="card-body"> -->
-                    <h5 class="card-title"><%= historyItem.menuItem %></h5>
-                    <b><p class="card-text">Time: <%= historyItem.time %></p>
-                    </b>
-                    <b>
-                        <p class="card-text">Price: ₹<%= historyItem.price %></p>
-                    </b>
-                    <b>
-                        <p class="card-text">Date: <%= historyItem.Created_At.toLocaleDateString('en-US', { month: 'short', day: 'numeric'}) %></p>
-                    </b>
+                    <!-- <b> -->
+                        <div class="add-heading-card">
+
+                            <p class="card-text"><%= historyItem.time %></p>
+                            <p class="card-title"><%= historyItem.menuItem %></p>
+                    <!-- </b> -->
+                    <!-- <b> -->
+                        <p class="card-text-1">Price: ₹<%= historyItem.price %></p>
+                    <!-- </b> -->
+                    <!-- <b> -->
+                        <p class="card-text-1">Date: <%= historyItem.Created_At.toLocaleDateString('en-US', { month: 'short', day: 'numeric'}) %></p>
+                    </div>
+                        <!-- </b> -->
                         <!-- </div> -->
                         <form action="/home/attendance/<%= historyItem._id %>">
                             <button class="attendance-btn">Attendance</button>

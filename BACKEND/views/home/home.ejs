@@ -26,27 +26,31 @@
             </div>
             <div class="feedback-container">
                 <!-- <div> -->
-                <%for(let feedbacks of feedback) {%>
-                    <div class="feedback-card">
-                        <h2 class="feedback-heading">
-                            <%=feedbacks.author.username %>
-                        </h2>
-                        <hr />
-                        <br>
-                        <div class="feedback-comment">
-                            <p>
-                                <%=feedbacks.comment %>
+                    <%for(let feedbacks of feedback) {%>
+                        <div class="feedback-card">
+                            <%if(feedbacks.author) {%>
+                                <h2 class="feedback-heading">
+                                    <%=feedbacks.author.username %>
+                                </h2>
+                            <% } else{ %>
+                                <h2>User not found</h2>
+                                <% } %>
+                            <hr />
+                            <br>
+                            <div class="feedback-comment">
+                                <p>
+                                    <%=feedbacks.comment %>
+                                </p>
+                            </div>
+                            <p class="date">Reviewed On <%= feedbacks.Created_At.toLocaleDateString('en-US', { day: 'numeric'
+                                    ,month: 'numeric' , year : 'numeric' })%>
                             </p>
+                            <div class="feedback-rating-star">
+                                <p class="starability-result" data-rating="<%= feedbacks.rating%>">
+                                </p>
+                            </div>
                         </div>
-                        <p class="date">Reviewed On <%= feedbacks.Created_At.toLocaleDateString('en-US', { day: 'numeric'
-                                ,month: 'numeric' , year : 'numeric' })%>
-                        </p>
-                        <div class="feedback-rating-star">
-                            <p class="starability-result" data-rating="<%= feedbacks.rating%>">
-                            </p>
-                        </div>
-                    </div>
-                    <%}%>
+                        <%}%>
                         <!-- </div> -->
             </div>
 <%- include("../includes/footer.ejs") %>
