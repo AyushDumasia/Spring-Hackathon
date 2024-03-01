@@ -41,43 +41,49 @@
             if (menu && menu._id) {
         %>
                 <% let currentTime = new Date().getHours()%>
+                <div class="item-main-container">
                 <div class="item-box">
                     <% if(menu.time.toUpperCase() === "BREAKFAST") { %>
                         <h3><%= menu.time %></h3>
-                        <h5><%= menu.menuItem %></h5>
+                        <h4><%= menu.menuItem %></h4>
                         <p>₹<%= menu.price %></p>
                         <% if( currentTime < 8) { %>
-                        <form method="POST" action="/home/menu/<%= menu._id %>?_method=PATCH">
+                        <form method="POST" action="/home/menu/<%= menu._id %>?_method=PATCH" class="form-for-order-now">
                             <button class="order-now">Order Now</button>
                         </form>
-                        <% } %>
-                        <hr>
-                    </div>
+                        <% } else{ %>
+                            <button class="order-now" disabled>Order Now</button>
+                            <% }%>
+                </div>
                     <div class="item-box">
                     <% } else if(menu.time.toUpperCase() === "LUNCH") { %>
                         <h3><%= menu.time %></h3>
-                        <h5><%= menu.menuItem %></h5>
+                        <h4><%= menu.menuItem %></h4>
                         <p>₹<%= menu.price %></p>
                         <% if(currentTime < 11) { %>
                         <form method="POST" action="/home/menu/<%= menu._id %>?_method=PATCH">
                             <button class="order-now">Order Now</button>
                         </form>
-                        <% } %>
-                        <hr>
+                        <% }else{ %>
+                            <button class="order-now" disabled>Order Now</button>
+                            <% } %>
                     </div>
                     <div class="item-box">
                     <% } else if(menu.time.toUpperCase() === "DINNER") { %>
                         <h3><%= menu.time %></h3>
-                        <h5><%= menu.menuItem %></h5>
+                        <h4><%= menu.menuItem %></h5>
                         <p>₹<%= menu.price %></p>
                         <% if(currentTime < 20) { %>
                         <form method="POST" action="/home/menu/<%= menu._id %>?_method=PATCH">
                             <button class="order-now">Order Now</button>
                         </form>
-                        <% } %>
-                        <hr>
+                        <% } else{ %>
+                            <button class="order-now" disabled>Order Now</button>
+                            <% }%>
                     <% } %>
                     </div>
+                </div>
+
         <%
             } else {
         %>
