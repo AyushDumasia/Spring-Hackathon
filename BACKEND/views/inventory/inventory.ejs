@@ -1,0 +1,32 @@
+<%- include("../includes/navbar.ejs") %>
+<link rel="stylesheet" href="/css/inputMenu.css">
+<link rel="stylesheet" href="/css/signUp.css"> 
+    <link rel="stylesheet" href="/css/login.css"> 
+<body>
+    <%- include("../flash/success.ejs") %>
+    <%- include("../flash/failure.ejs") %>
+    <div class="formArea">
+        <form method="POST" action="/menu/inventory">
+            <div class="inventory-form-page">
+            <h1>Inventory</h1>
+            <div class="inputField">
+                <div class="div">
+                    <label for="product" class="label">Product</label>
+                    <input class="input" id="product" placeholder="Enter your product" name="product" required>
+                </div>
+                <div class="div">
+                    <label for="quantity" class="label">Quantity</label>
+                    <input class="input" id="" placeholder="Enter your Email" name="quantity"  required type = "number">
+                </div>
+                <div class="div">
+                    <label for="price" class="label">Price</label>
+                    <input class="input" id="price" placeholder="Enter your contact number" name="perPrice" type="number" min="10" required>
+                </div>
+            </div>
+            <a href="/menu/inventory-history">Check previous inventory</a>
+            <button class="action">Add Inventory</button>
+        </div>
+        </form>
+    </div>
+</body>
+</html>

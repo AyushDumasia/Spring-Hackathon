@@ -28,11 +28,17 @@ let menuPage = asyncHandler(async(req ,res) =>{
 let historyPage = asyncHandler(async (req, res) => {
     const user = req.user;
     const populatedUser = await User.findById(user._id).populate('history');
+    console.log(populatedUser);
     
     if (!populatedUser.history || populatedUser.history.length === 0) {
         res.render("./home/Empty.ejs");
     } else {
-        res.render("./home/history.ejs", { history: populatedUser });
+        const prices = populatedUser.history.map(historyItem => +historyItem.price);
+
+    const sumOfPrices = prices.reduce((accumulator, currentPrice) => accumulator + currentPrice, 0);
+
+
+    res.render("./home/history.ejs", { history: populatedUser , total : sumOfPrices});
     }
 });
 

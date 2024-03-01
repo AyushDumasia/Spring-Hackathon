@@ -14,7 +14,9 @@ const userRoute = require('./routes/user')
 const tokenRoute = require('./routes/token')
 const homeRoute = require('./routes/home.js')
 const pollRoute = require('./routes/poll.js')
-const User = require('./models/userSchema.js')
+const inventoryRoute = require('./routes/inventory.js');
+const User = require('./models/userSchema.js');
+// const inventory = require('./models/inventorySchema.js');
 
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ urlencoded: true }));
@@ -95,6 +97,7 @@ app.use("/" , userRoute)
 app.use("/" , tokenRoute);
 app.use("/home" , homeRoute);
 app.use("/menu" ,pollRoute );
+app.use("/menu" , inventoryRoute);
 
 
 app.get("*" , async (req,res) =>{

@@ -50,7 +50,6 @@ let updateMenu = asyncHandler( async (req,res) =>{
 
 let deleteMenu = asyncHandler(async(req ,res)=>{
     let { id } = req.params;
-    console.log(id);
     let result = await Menu.findByIdAndDelete(id);
     res.redirect("/home/menu");
 })

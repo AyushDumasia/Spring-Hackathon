@@ -1,0 +1,17 @@
+<%- include("../includes/navbar.ejs") %>
+<link rel="stylesheet" href="/css/inputMenu.css">
+<link rel="stylesheet" href="/css/inputMenu.css">
+<link rel="stylesheet" href="/css/inventoryHistory.css"> 
+    <link rel="stylesheet" href="/css/login.css"> 
+<body>
+    <div class="inventory-history-container">
+        <% for(let history of inventory) {%>
+        <div class="inventory-card">
+            <h3 class="inventory-heading">Product : <%= history.product %></h3>
+            <p>Quantity : <%= history.quantity %></p>
+            <p>Price : <%= history.perPrice %></p>
+        </div>
+        <% } %>
+    </div>
+</body>
+</html>

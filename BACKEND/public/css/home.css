@@ -171,10 +171,12 @@ body{
 }
 
 .main-history-container{
+    min-height: 85vh;
     display: block;
     width: 100%;
     margin:10px auto;
 }
+
 
 .history-container{
     padding: 10px;
@@ -183,6 +185,16 @@ body{
     /* justify-content: center; */
 }
 
+.total-expensise{
+    display: flex;
+    justify-content: end;
+    font-size: 20px;
+    height: 2.5rem;
+    padding-right: 5px;
+    align-items: center;
+    background-color: #2c0b0e ;
+    color: white;
+}
 .card {
     width: 13.6%;
     margin: 10px;
@@ -326,4 +338,8 @@ input[type="radio"] {
     background-color: var(--secondary-color);
     text-align: center;
     margin: auto;
+}
+
+.inventory-form-page{
+    height: 100vh;
 }
