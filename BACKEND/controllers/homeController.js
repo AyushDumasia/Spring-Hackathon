@@ -36,8 +36,6 @@ let historyPage = asyncHandler(async (req, res) => {
         const prices = populatedUser.history.map(historyItem => +historyItem.price);
 
     const sumOfPrices = prices.reduce((accumulator, currentPrice) => accumulator + currentPrice, 0);
-
-
     res.render("./home/history.ejs", { history: populatedUser , total : sumOfPrices});
     }
 });
