@@ -6,14 +6,15 @@
         <div class="history-container">
             <% for (let historyItem of history.history) { %>
                 <div class="card">
-                    <h3 class="card-text"><%= historyItem.time %></h3>
-                    <p class="card-title"><%= historyItem.menuItem %></p>
-                    <p class="card-title">Price: ₹<%= historyItem.price %></p>
-                    <p class="card-title">Date: <%= historyItem.Created_At.toLocaleDateString('en-US', { month: 'short', day: 'numeric'}) %></p>
+                <!-- <div class="card-body"> -->
+                    <h5 class="card-title"><%= historyItem.menuItem %></h5>
+                    <p class="card-text">Time: <%= historyItem.time %></p>
+                    <p class="card-text">Price: ₹<%= historyItem.price %></p>
+                    <p class="card-text">Date: <%= historyItem.Created_At.toLocaleDateString('en-US', { month: 'short', day: 'numeric'}) %></p>
+                <!-- </div> -->
             </div>
             <% } %>
         </div>
     </div>
-    <p class="total-expensise">Total : <%=total %></p>
 </body>
 </html>
