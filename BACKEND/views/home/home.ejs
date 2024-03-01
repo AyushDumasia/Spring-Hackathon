@@ -10,22 +10,42 @@
 <body>
     <%- include("../flash/success.ejs") %>
     <%- include("../flash/failure.ejs") %>
-            <div class="welcome">
-                <div class="heading">
-                    <h2 class="system">Welcome to MessMeal</h2>
-                    <p>Savor a delicious and healthy breakfast at our mess where
-                        every item is prepared fresh daily,
-                        ensuring a delightful start to your day.</p>
+            <!-- <div class="welcome"> -->
+                <div class="welcome-container">
+                    <div class="heading">
+                        <div class="welcome-container-child">
+                            <h2 class="welcome-h2">Welcome to Hostelly</h2>
+                            <p>
+                                Savor a delicious and healthy breakfast at our mess where
+                                every item is prepared fresh daily,
+                                ensuring a delightful start to your day.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="img-div">
+                        <img src="/assests/DrawKit-cooking-kitchen-food-vector-illustrations-03.png" alt="kitchen-pic"
+                        class="home-img" loading="lazy">
+                    </div>
                 </div>
-                <!-- <div class="image-div"> -->
-                    <img src="/assests/DrawKit-cooking-kitchen-food-vector-illustrations-03.png" alt="kitchen-pic"
-                    class="home-img" loading="lazy">
-                <!-- </div> -->
-                <!-- <a href="#" class="learn">Learn More</a> -->
             <!-- </div> -->
+
+            <div class="overview">
+                <div class="top">
+                    <h1>Welcome to Hostelly Mess!</h1>
+                    <p>Indulge in a culinary experience like no other. Our mess is dedicated to providing you with delicious and nutritious meals that cater to your taste buds and dietary preferences.</p>
+                </div>
+                <div class="bottom">
+                    <div class="mess-img">
+                        <img src="..\assests\dice-1502706_640.jpg" alt="Mess Interior Image">
+                    </div>
+                    <div class="content">
+                        <h1>Fresh and Flavorful</h1>
+                        <p>At Hostelly Mess, we take pride in serving meals made from fresh and locally sourced ingredients. Our chefs craft each dish with care to ensure a perfect blend of flavors in every bite.</p>
+                    </div>
+                </div>
             </div>
+
             <div class="feedback-container">
-                <!-- <div> -->
                     <%for(let feedbacks of feedback) {%>
                         <div class="feedback-card">
                             <%if(feedbacks.author) {%>
@@ -51,7 +71,6 @@
                             </div>
                         </div>
                         <%}%>
-                        <!-- </div> -->
             </div>
 <%- include("../includes/footer.ejs") %>
             

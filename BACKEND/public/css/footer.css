@@ -22,9 +22,9 @@
 .footer-container {
     width: fit-content;
     display: flex;
-    margin: 50px auto;
+    margin: auto;
     padding: 20px;
-    height: 411px;
+    /* height: 411px; */
 }
 
 .footer-contact {
