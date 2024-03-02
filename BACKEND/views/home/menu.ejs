@@ -7,76 +7,103 @@
     <div class="menu-item-container">
         <div class="item-heading">
             <h1>Today's Menu</h1>
-            <p>Enjoy a healthy and tasty food in our mess.We make all items
-                fresh daily.</p>
+            <p>Enjoy a healthy and tasty food in our mess. We make all items fresh daily.</p>
         </div>
+
         <%
-let latestBreakfast;
-let latestLunch;
-let latestDinner;
+        let latestBreakfast;
+        let latestLunch;
+        let latestDinner;
 
-for (let menus of menu) {
-if (
-(menus.time.toUpperCase() === "BREAKFAST" && (!latestBreakfast || menus.updatedAt > latestBreakfast.updatedAt)) ||
-(menus.time.toUpperCase() === "LUNCH" && (!latestLunch || menus.updatedAt > latestLunch.updatedAt)) ||
-(menus.time.toUpperCase() === "DINNER" && (!latestDinner || menus.updatedAt > latestDinner.updatedAt))
-) {
-switch (menus.time.toUpperCase()) {
-    case "BREAKFAST":
-        latestBreakfast = menus;
-        break;
-    case "LUNCH":
-        latestLunch = menus;
-        break;
-    case "DINNER":
-        latestDinner = menus;
-        break;
-    default:
-        break;
-}
-}
-}
+        for (let menus of menu) {
+            if (
+                (menus.time.toUpperCase() === "BREAKFAST" && (!latestBreakfast || menus.updatedAt > latestBreakfast.updatedAt)) ||
+                (menus.time.toUpperCase() === "LUNCH" && (!latestLunch || menus.updatedAt > latestLunch.updatedAt)) ||
+                (menus.time.toUpperCase() === "DINNER" && (!latestDinner || menus.updatedAt > latestDinner.updatedAt))
+            ) {
+                switch (menus.time.toUpperCase()) {
+                    case "BREAKFAST":
+                        latestBreakfast = menus;
+                        break;
+                    case "LUNCH":
+                        latestLunch = menus;
+                        break;
+                    case "DINNER":
+                        latestDinner = menus;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
 
-function displayMenuItem(menu) {
-    if (menu && menu._id) {
+        function displayMenuItem(menu) {
+            if (menu && menu._id) {
         %>
-        <div class="item-container">
-            <div class="item-box">
-                <h3><%= menu.time %></h3>
-                <h5><%= menu.menuItem %></h5>
-                <p>₹<%= menu.price %></p>
-                <form method="POST" action="/home/menu/<%= menu._id %>?_method=PATCH">
-                    <button class="order-now">Order Now</button>
-                </form>
-                <%if(currUser && currUser.username == "admin"){%>
-                    <form action="/menu/<%=menu._id%>?_method=DELETE" method="POST">
-                        <button class="order-now">Delete</button>
-                    </form>
-                    <form action="/menu/edit/<%=menu._id%>?method=UPDATE" method="GET">
-                        <button class="order-now">Update</button>
-                    </form>
-                <%}%>
-            </div>
-            <hr>
-        </div>
+                <% let currentTime = new Date().getHours()%>
+                <div class="item-main-container">
+                <div class="item-box">
+                    <% if(menu.time.toUpperCase() === "BREAKFAST") { %>
+                        <h3><%= menu.time %></h3>
+                        <h4><%= menu.menuItem %></h4>
+                        <p>₹<%= menu.price %></p>
+                        <% if( currentTime < 8) { %>
+                        <form method="POST" action="/home/menu/<%= menu._id %>?_method=PATCH" class="form-for-order-now">
+                            <button class="order-now">Order Now</button>
+                        </form>
+                        <% } else{ %>
+                            <button class="order-now" disabled>Order Now</button>
+                            <% }%>
+                </div>
+                    <div class="item-box">
+                    <% } else if(menu.time.toUpperCase() === "LUNCH") { %>
+                        <h3><%= menu.time %></h3>
+                        <h4><%= menu.menuItem %></h4>
+                        <p>₹<%= menu.price %></p>
+                        <% if(currentTime < 11) { %>
+                        <form method="POST" action="/home/menu/<%= menu._id %>?_method=PATCH">
+                            <button class="order-now">Order Now</button>
+                        </form>
+                        <% }else{ %>
+                            <button class="order-now" disabled>Order Now</button>
+                            <% } %>
+                    </div>
+                    <div class="item-box">
+                    <% } else if(menu.time.toUpperCase() === "DINNER") { %>
+                        <h3><%= menu.time %></h3>
+                        <h4><%= menu.menuItem %></h5>
+                        <p>₹<%= menu.price %></p>
+                        <% if(currentTime < 20) { %>
+                        <form method="POST" action="/home/menu/<%= menu._id %>?_method=PATCH">
+                            <button class="order-now">Order Now</button>
+                        </form>
+                        <% } else{ %>
+                            <button class="order-now" disabled>Order Now</button>
+                            <% }%>
+                    <% } %>
+                    </div>
+                </div>
+
         <%
-    } else {
+            } else {
         %>
-        <div class="item-container">
-            <div class="item-box">
-                <h3>Not Update</h3>
-            </div>
-            <hr>
-        </div>
+                <div class="item-container">
+                    <div class="item-box">
+                        <h3>Not Update</h3>
+                    </div>
+                    <hr>
+                </div>
         <%
-    }
-}
+            }
+        }
 
+        displayMenuItem(latestBreakfast);
+        displayMenuItem(latestLunch);
+        displayMenuItem(latestDinner);
+        %>
+    </div>
 
-displayMenuItem(latestBreakfast);
-displayMenuItem(latestLunch);
-displayMenuItem(latestDinner);
-%>
+    <!-- Your script section goes here -->
 
 </body>
 </html>
