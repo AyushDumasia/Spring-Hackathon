@@ -28,15 +28,16 @@ let menuPage = asyncHandler(async(req ,res) =>{
 let historyPage = asyncHandler(async (req, res) => {
     const user = req.user;
     const populatedUser = await User.findById(user._id).populate('history');
-    console.log(populatedUser);
-    
+    let item = await Menu.findOne().populate('attendance');
+    const totalAttendance = item.attendance.length;
+    console.log(totalAttendance);
     if (!populatedUser.history || populatedUser.history.length === 0) {
         res.render("./home/Empty.ejs");
     } else {
         const prices = populatedUser.history.map(historyItem => +historyItem.price);
 
     const sumOfPrices = prices.reduce((accumulator, currentPrice) => accumulator + currentPrice, 0);
-    res.render("./home/history.ejs", { history: populatedUser , total : sumOfPrices});
+    res.render("./home/history.ejs", { history: populatedUser , total : sumOfPrices , total : totalAttendance});
     }
 });
 
@@ -120,7 +121,8 @@ let addFeedback = async(req , res) =>{
 let getAttendance = async(req ,res) =>{
     let { id } = req.params;
     let item = await Menu.findOne({ _id: id }).populate('attendance');
-    res.render("./home/adminAttendance.ejs" , {items : item , dataItem : item});
+    const totalAttendance = item.attendance.length;
+    res.render("./home/adminAttendance.ejs" , {items : item , dataItem : item , total : totalAttendance});
     // res.send(item.attendance.username);
 }
 

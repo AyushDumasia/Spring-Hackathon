@@ -7,7 +7,7 @@
             <% for (let historyItem of history.history) { %>
                 <div class="card">
                 <!-- <div class="card-body"> -->
-                    <h5 class="card-title"><%= historyItem.menuItem %></h5>
+                    <h3 class="card-text"><%= historyItem.menuItem %></h3>
                     <p class="card-text">Time: <%= historyItem.time %></p>
                     <p class="card-text">Price: ₹<%= historyItem.price %></p>
                     <p class="card-text">Date: <%= historyItem.Created_At.toLocaleDateString('en-US', { month: 'short', day: 'numeric'}) %></p>

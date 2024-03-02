@@ -24,22 +24,9 @@ router.post("/feedback" ,isLoggedIn, addFeedback)
 router.get("/attendance/:id",adminValidation, getAttendance);
 
 // router.get('/chef-history', async (req, res) => {
-//     try {
+//         let currentDate = new Date();
 //         let currentHour = new Date().getHours();
-//         console.log('Current Hour:', currentHour);
-//         let menu = await Menu.find({
-//             $expr: {
-//                 $eq: [
-//                     { $hour: '$Created_At' },
-//                     currentHour
-//                 ]
-//             }
-//         });
-//         console.log('Menu:', menu);
-//         res.status(200).json(menu);
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).send('Internal Server Error');
-//     }
+//         let results = await Menu.find({C})
+//         // console.log('Current Hour:', currentHour);
 // });
 module.exports = router;

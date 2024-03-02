@@ -135,6 +135,7 @@ body{
     padding: 10px;
     background-color : rgb(239, 241, 237);
     text-align: center;
+    overflow: hidden;
 }
 
 .item-heading{
@@ -340,10 +341,19 @@ input[type="radio"] {
 
 
 .attendance-container {
+    min-height: 80vh;
     width: 80%;
     margin: 10px auto;
     text-align: start;
     padding: 15px;
+}
+.totalAttendance{
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-right: 10px;
 }
 .dataItem-heading{
     display: flex;
@@ -373,4 +383,11 @@ input[type="radio"] {
     background-color: var(--secondary-color);
     text-align: center;
     margin: auto;
+}
+
+.Not-updated h3{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+    padding: 20px;
 }
