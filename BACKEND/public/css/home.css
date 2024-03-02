@@ -47,22 +47,21 @@ body{
 
 .right {
     display: flex;
-    width: 10%;
-    justify-content: space-evenly;
     align-items: center;
 }
 
-.Register{
+.Register {
     font-size: 14px;
     color: white;
     padding: 7px;
-    border-radius : 5px;
+    border-radius: 5px;
     background-color: var(--secondary-color);
+    margin-right: 10px; /* Add margin to create space between buttons */
 }
 
-.Login{
-    margin-right: 5px;
+.Login {
     font-size: 14px;
+    margin-right: 10px; /* Add margin to create space between buttons */
 }
 
 .welcome-h2{
@@ -375,41 +374,3 @@ input[type="radio"] {
     text-align: center;
     margin: auto;
 }
-
-.overview{
-    padding: 40px 170px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* align-items: center; */
-    background-color: var(--primary-color);
-    /* background-color: var(--primary-color); */
-}
-
-.top{
-    /* background-color: blue; */
-    padding: 30px;
-    padding-top: 0px;
-    width: 640px;
-}
-
-.bottom{
-    /* background-color: red; */
-    display: flex;
-    padding: 20px;
-    padding-top: 0px;
-}
-
-/* .mess-img > img{
-    width: 150%;
-} */
-
-.content{
-    padding-left: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* align-items: center; */
-}
-
-
