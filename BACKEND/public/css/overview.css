@@ -1,0 +1,35 @@
+.overview {
+    padding: 40px 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--primary-color);
+}
+
+.top {
+    padding: 30px;
+    padding-top: 0px;
+    width: 100%;
+}
+
+.bottom {
+    display: flex;
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.mess-img {
+    width: 50%;
+}
+
+.mess-img > img{
+    width: 100%;
+}
+
+.content {
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
