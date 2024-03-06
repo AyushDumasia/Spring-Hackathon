@@ -45,7 +45,7 @@
                 <div class="item-box">
                     <% if(menu.time.toUpperCase() === "BREAKFAST") { %>
                         <h3><%= menu.time %></h3>
-                        <h4><%= menu.menuItem %></h4>
+                        <p><%= menu.menuItem %></p>
                         <p>₹<%= menu.price %></p>
                         <% if( currentTime > 6 && currentTime < 8) { %>
                         <form method="POST" action="/home/menu/<%= menu._id %>?_method=PATCH" class="form-for-order-now">
@@ -58,7 +58,7 @@
                     <div class="item-box">
                     <% } else if(menu.time.toUpperCase() === "LUNCH") { %>
                         <h3><%= menu.time %></h3>
-                        <h4><%= menu.menuItem %></h4>
+                        <p><%= menu.menuItem %></p>
                         <p>₹<%= menu.price %></p>
                         <% if( currentTime > 9 && currentTime < 11) { %>
                         <form method="POST" action="/home/menu/<%= menu._id %>?_method=PATCH">
@@ -71,7 +71,7 @@
                     <div class="item-box">
                     <% } else if(menu.time.toUpperCase() === "DINNER") { %>
                         <h3><%= menu.time %></h3>
-                        <h4><%= menu.menuItem %></h5>
+                        <p><%= menu.menuItem %></p>
                         <p>₹<%= menu.price %></p>
                         <% if(currentTime > 18 && currentTime < 22) { %>
                         <form method="POST" action="/home/menu/<%= menu._id %>?_method=PATCH">
