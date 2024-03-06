@@ -27,10 +27,10 @@ const userSchema = new Schema({
             message: 'Phone number must be exactly 10 characters long',
         },
     },
-    isHosteler : {
-        type : Boolean,
-        required : true
-    },
+    // isHosteler : {
+    //     type : Boolean,
+    //     required : true
+    // },
     history: [
         {
             type: Schema.Types.ObjectId,

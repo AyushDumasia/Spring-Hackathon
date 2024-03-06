@@ -43,7 +43,8 @@ const sendPoll = asyncHandler(async (req, res) => {
         items: menu,
     });
     await pollResult.save();
-    res.status(200).json({ message: "Poll submitted successfully" });
+    req.flash("success" , "Poll submitted successfully");
+    res.redirect("/menu/getPoll");
 });
 
 

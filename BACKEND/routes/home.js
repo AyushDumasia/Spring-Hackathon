@@ -3,6 +3,8 @@ const router = express.Router();
 const isLoggedIn = require('../middlewares/isLoggedIn.js');
 const { getHome , postHome , subscription , menuPage , historyPage , addItem , addFeedback , getFeedback, getAttendance} = require('../controllers/homeController.js');
 const { adminValidation } = require('../middlewares/adminValidation.js');
+let User = require("../models/userSchema.js");
+
 let Menu = require("../models/menuSchema.js")
 
 router.get("/", getHome);
@@ -19,14 +21,8 @@ router.patch("/menu/:id", isLoggedIn,addItem );
 
 router.get("/feedback" ,getFeedback )
 
-router.post("/feedback" ,isLoggedIn, addFeedback)
+router.post("/feedback" , isLoggedIn, addFeedback)
 
-router.get("/attendance/:id",adminValidation, getAttendance);
+router.get("/attendance/:id", adminValidation, getAttendance);
 
-// router.get('/chef-history', async (req, res) => {
-//         let currentDate = new Date();
-//         let currentHour = new Date().getHours();
-//         let results = await Menu.find({C})
-//         // console.log('Current Hour:', currentHour);
-// });
 module.exports = router;

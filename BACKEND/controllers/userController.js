@@ -15,9 +15,13 @@ const generateModifiedUsername = (originalUsername) => {
 
 let signUp = (asyncHandler(async (req, res) => {
     try {
-        let { username, email, phone, isHosteler, password } = req.body;
+        let { username, email, phone, password } = req.body;
         let oldNumber = await User.findOne({phone});
         let oldEmail = await User.findOne({email});
+        if(password.lenght < 5){
+            req.flash("failure" , "Password must be more than 5 characters long");
+            res.redirect("/sign-up");
+        }
         if(oldNumber){
             req.flash("failure" , "Number already in use");
             return res.redirect("/sign-up");
@@ -45,7 +49,7 @@ let signUp = (asyncHandler(async (req, res) => {
         // });
 
         // console.log("Message sent: %s", info.messageId);
-        const newUser = new User({ username, email, phone, isHosteler });
+        const newUser = new User({ username, email, phone });
         let registerUser = await User.register(newUser, password);
         req.login(registerUser, (err) => {
             if (err) {
