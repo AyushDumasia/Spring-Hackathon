@@ -18,8 +18,7 @@ const pollRoute = require('./routes/poll.js')
 const inventoryRoute = require('./routes/inventory.js');
 const User = require('./models/userSchema.js');
 // const inventory = require('./models/inventorySchema.js');
-// GOOGLE_CLIENT_ID = '675337387885-4qaqcnaegeqr8agt6s047hc1cbaf519d.apps.googleusercontent.com';
-// GOOGLE_CLIENT_SECRET = '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'
+
 
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ urlencoded: true }));
