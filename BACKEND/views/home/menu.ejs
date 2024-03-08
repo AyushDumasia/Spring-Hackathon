@@ -47,7 +47,7 @@
                         <h3><%= menu.time %></h3>
                         <p><%= menu.menuItem %></p>
                         <p>₹<%= menu.price %></p>
-                        <% if( currentTime > 6 && currentTime < 8) { %>
+                        <% if( currentTime > 6 && currentTime < 24) { %>
                         <form method="POST" action="/home/menu/<%= menu._id %>?_method=PATCH" class="form-for-order-now">
                             <button class="order-now">Order Now</button>
                         </form>
@@ -60,7 +60,7 @@
                         <h3><%= menu.time %></h3>
                         <p><%= menu.menuItem %></p>
                         <p>₹<%= menu.price %></p>
-                        <% if( currentTime > 9 && currentTime < 11) { %>
+                        <% if( currentTime > 6 && currentTime < 24) { %>
                         <form method="POST" action="/home/menu/<%= menu._id %>?_method=PATCH">
                             <button class="order-now">Order Now</button>
                         </form>
@@ -73,7 +73,7 @@
                         <h3><%= menu.time %></h3>
                         <p><%= menu.menuItem %></p>
                         <p>₹<%= menu.price %></p>
-                        <% if(currentTime > 18 && currentTime < 22) { %>
+                        <% if(currentTime > 6 && currentTime < 24) { %>
                         <form method="POST" action="/home/menu/<%= menu._id %>?_method=PATCH">
                             <button class="order-now">Order Now</button>
                         </form>

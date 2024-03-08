@@ -30,25 +30,31 @@ let signUp = (asyncHandler(async (req, res) => {
             req.flash("failure" , "Email already in use");
             return res.redirect("/sign-up");
         }
-        let testAccount = await nodemailer.createTestAccount();
-        const transporter = nodemailer.createTransport({
+        try{
+            let testAccount = await nodemailer.createTestAccount();
+            const transporter = nodemailer.createTransport({
             host: 'smtp.ethereal.email',
             port: 587,
             auth: {
                 user: 'raleigh.hyatt@ethereal.email',
                 pass: 'qxte6Vsn7XJguT5f9h'
             }
-        });
-        
-        const info = await transporter.sendMail({
-            from: '"Ayush Dumasia" <raleigh.hyatt@ethereal.email>', 
-            to: email,
-            subject: "Welcome..",
-            text: `You have successfully create your account in a MessMeal , Here is Your username : ${username} and Password : ${password}` ,
-            html: `<b>You have successfully create your account in a MessMeal , Here is Your username : ${username} and Password : ${password}</b>`,
-        });
+            });
 
-        console.log("Message sent: %s", info.messageId);
+            const info = await transporter.sendMail({
+                from: '"Ayush Dumasia" <raleigh.hyatt@ethereal.email>', 
+                to: email,
+                subject: "Welcome..",
+                text: `You have successfully create your account in a MessMeal , Here is Your username : ${username} and Password : ${password}` ,
+                html: `<b>You have successfully create your account in a MessMeal , Here is Your username : ${username} and Password : ${password}</b>`,
+            });
+
+            console.log("Message sent: %s", info.messageId);
+        }
+        catch(err){
+            req.flash("failure" , "Server Error");
+            return res.redirect("/sign-up");
+        }
         const newUser = new User({ username, email, phone });
         let registerUser = await User.register(newUser, password);
         req.login(registerUser, (err) => {

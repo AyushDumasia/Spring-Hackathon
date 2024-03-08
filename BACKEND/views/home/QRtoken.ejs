@@ -1,13 +1,49 @@
 <%- include("../includes/navbar.ejs") %>
-<title>Qr Token</title>
-</head>
-<body>
-    <%- include("../flash/success.ejs") %>
-    <%- include("../flash/failure.ejs") %>
-    <div class="qr-container">
-        <h3 class="qr-heading">Scan This QR Code to Get Food</h3>
-        <p class="warning">Make sure to keep this QR code secure.</p>
-        <img class="qr-image" src="<%= qrCodeUrl %>" alt="QR Code">
-    </div>
-</body>
-</html>
+    <title>Qr Token</title>
+    </head>
+
+    <body>
+        <%- include("../flash/success.ejs") %>
+            <%- include("../flash/failure.ejs") %>
+                <div class="qr-container">
+                    <h3 class="qr-heading">Scan This QR Code to Get Food</h3>
+                    <p class="warning">Make sure to keep this QR code secure.</p>
+                    <img class="qr-image" src="<%= qrCodeUrl %>" alt="QR Code">
+                </div>
+                    <h3 class="nofity-btn"
+                        href="upi://pay?pa=9054493282417@paytm&pn=ayushdumasia&cu=INR&am=<%= newData.price %>">Click
+                        here to make a payment</h3>
+                <script>
+                    let container = document.querySelector(".qr-container");
+                  
+                    function showFlashMessage(message, type) {
+                      let messageElement = document.createElement('p');
+                      messageElement.textContent = message;
+                      messageElement.classList.add('flash-message', type);
+                  
+                      container.appendChild(messageElement);
+                  
+                      // Remove the message after a certain duration (e.g., 3 seconds)
+                      setTimeout(() => {
+                        container.removeChild(messageElement);
+                      }, 500);
+                    }
+                  
+                    function notify() {
+                      if (window.innerWidth > 1000) {
+                        console.log("Download the app");
+                        showFlashMessage('Download the app', 'success');
+                      }
+                    }
+                  
+                    document.addEventListener('DOMContentLoaded', function () {
+                      let heading = document.querySelector('.nofity-btn');
+                      heading.addEventListener('click', function () {
+                        notify();
+                      });
+                    });
+                  </script>
+                  
+    </body>
+
+    </html>

@@ -10,6 +10,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+const braintree = require('braintree');
 const menuRoute  = require('./routes/menu')
 const userRoute = require('./routes/user')
 const tokenRoute = require('./routes/token')
@@ -48,6 +50,15 @@ passport.use(new LocalStrategy(User.authenticate()));
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+require('dotenv').config();
+
+const gateway = new braintree.BraintreeGateway({
+    environment: braintree.Environment.Sandbox,
+    merchantId: process.env.BRAINTREE_MERCHANT_ID,
+    publicKey: process.env.BRAINTREE_PUBLIC_KEY,
+    privateKey: process.env.BRAINTREE_PRIVATE_KEY,
+});
 
 // passport.use(new GoogleStrategy({
 //     clientID:     GOOGLE_CLIENT_ID,

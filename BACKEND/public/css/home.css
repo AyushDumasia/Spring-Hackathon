@@ -391,3 +391,16 @@ input[type="radio"] {
     margin: 10px 0px;
     padding: 20px;
 }
+
+.nofity-btn{
+    text-align: center;
+    cursor: pointer;
+}
+
+.flash-message {
+    background-color: #dff0d8;
+    border: 1px solid #3c763d;
+    color: #3c763d;
+    padding: 10px;
+    margin-bottom: 10px;
+}
