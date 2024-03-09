@@ -3,7 +3,6 @@ const passport = require('passport');
 const nodemailer = require('nodemailer')
 const User = require('../models/userSchema.js');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
 
