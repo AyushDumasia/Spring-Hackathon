@@ -10,7 +10,7 @@ body{
 }
 
 :root {
-    --primary-color: rgb(239, 241, 237);
+    --primary-color:rgb(221, 213, 207);
     --secondary-color: rgb(30, 46, 222);
     --shade-of-secondary-color: rgb(20, 30, 144);
     --ternary-color: rgb(23, 15, 17);
@@ -156,11 +156,12 @@ body{
 .item-box {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 5px);
     align-items: center;
     justify-content: space-around;
     margin: 10px 0px;
     padding: 20px;
-    /* border-bottom: 1px solid #000000; */
+    /* background-color:rgb(221, 213, 207); */
     border-radius: 8px;
 }
 
@@ -265,6 +266,7 @@ body{
 
 .qr-image {
     max-width: 100%;
+    width: 25%;
     height: auto;
     margin-top: 20px;
 }

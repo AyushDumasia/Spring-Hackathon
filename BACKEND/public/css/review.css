@@ -6,7 +6,7 @@
 }
 
 :root {
-    --primary-color: rgb(239, 241, 237);
+    --primary-color:peachpuff;
     --secondary-color: #1e2ede;
     --shade-of-secondary-color: rgb(20, 30, 144);
     --ternary-color: rgb(23, 15, 17);
@@ -29,7 +29,7 @@
 .feedback-card {
     animation: scroll 30s linear infinite;
     width: 340px;
-    background-color: rgb(247, 243, 239);
+    background-color:rgb(221, 213, 207);
     padding: 20px;
     border-radius: 8px;
     /* max-height: 300px; */
