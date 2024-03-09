@@ -10,9 +10,9 @@
                     <p class="warning">Make sure to keep this QR code secure.</p>
                     <img class="qr-image" src="<%= qrCodeUrl %>" alt="QR Code">
                 </div>
-                    <h3 class="nofity-btn"
-                        href="upi://pay?pa=9054493282417@paytm&pn=ayushdumasia&cu=INR&am=<%= newData.price %>">Click
-                        here to make a payment</h3>
+                  <a class="nofity-btn"
+                  href="upi://pay?pa=6351731522@paytm&pn=ayushdumasia&cu=INR&am=<%= newData.price %>">Click
+                  here to make a payment</a>
                 <script>
                     let container = document.querySelector(".qr-container");
                   
@@ -21,9 +21,8 @@
                       messageElement.textContent = message;
                       messageElement.classList.add('flash-message', type);
                   
-                      container.appendChild(messageElement);
+                      container.prepend(messageElement);
                   
-                      // Remove the message after a certain duration (e.g., 3 seconds)
                       setTimeout(() => {
                         container.removeChild(messageElement);
                       }, 500);

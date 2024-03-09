@@ -393,14 +393,18 @@ input[type="radio"] {
 }
 
 .nofity-btn{
+    display: flex;
+    justify-content: center;
     text-align: center;
     cursor: pointer;
 }
 
 .flash-message {
-    background-color: #dff0d8;
-    border: 1px solid #3c763d;
-    color: #3c763d;
+    color: #ea868f;
+    background-color: #2c0b0e;
+    border: 1px solid #842029;
     padding: 10px;
     margin-bottom: 10px;
 }
+
+

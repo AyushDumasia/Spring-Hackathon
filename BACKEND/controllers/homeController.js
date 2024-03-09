@@ -91,7 +91,8 @@ let addItem = asyncHandler(async (req, res) => {
                 Meal-Time : ${newData.time}
                 Price : ${newData.price}
                 Time : ${newData.created_at}`;
-            const qrCodeUrl = await qrcode.toDataURL(Message);
+            let newQrcode = `upi://pay?pa=9054493282417@paytm&pn=ayushdumasia&cu=INR&am=${newData.price}`
+            const qrCodeUrl = await qrcode.toDataURL(newQrcode);
             res.render("./home/QRtoken.ejs" , {qrCodeUrl , newData});
         }
         else{
@@ -109,7 +110,9 @@ let addItem = asyncHandler(async (req, res) => {
                 Time : ${newData.time}
                 Price : ${newData.price}
                 Time : ${newData.created_at}`;
-            const qrCodeUrl = await qrcode.toDataURL(Message);
+                let newQrcode = `upi://pay?pa=9054493282417@paytm&pn=ayushdumasia&cu=INR&am=${newData.price}`
+            const qrCodeUrl = await qrcode.toDataURL(newQrcode);
+            // const qrCodeUrl = await qrcode.toDataURL(Message);
             res.render("./home/QRtoken.ejs" , {qrCodeUrl , newData});
         }
     } catch (error) {
