@@ -16,6 +16,15 @@
     overflow: hidden;
     padding: 20px;
 }
-.inventory-heading {
 
+
+@media (max-width : 900px) {
+    .inventory-history-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .inventory-card{
+        width: 70%;
+    }
 }

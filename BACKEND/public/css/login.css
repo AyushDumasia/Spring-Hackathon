@@ -47,9 +47,9 @@
     .formArea{
         width: 88%;
         height: 100%;
-        display: flex;
+        /* display: flex; */
         flex-wrap: wrap;
-        align-items: center;
+        /* align-items: center; */
         /* margin:25vw 0; */
         border-radius: 5px;
     }
