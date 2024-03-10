@@ -43,4 +43,16 @@
     color: #555;
 }
 
+@media (max-width : 375px) {
+    .formArea{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin:25vw 0;
+        border-radius: 8vw;
+    }
+}
+
 

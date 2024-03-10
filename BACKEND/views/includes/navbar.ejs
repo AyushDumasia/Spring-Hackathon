@@ -54,19 +54,21 @@
                 <i class="fas fa-xmark"></i>
             </a>
             <div class="sidebar-content">
-                <a href="/home" class="Home">Home</a>
-                <a href="/home/menu" class="Reports">Menu</a>
-                <a href="/home/subscription" class="Meal_subscriptions">subscriptions</a>
-                <%if(currUser && currUser.username !== "admin"){%>
-                    <a href="/home/history">History</a>
+                <ul>
+                <li><a href="/home" class="Home">Home</a></li>
+                <li><a href="/home/menu" class="Reports">Menu</a></li>
+                <li><a href="/home/subscription" class="Meal_subscriptions">subscriptions</a>
+                    <%if(currUser && currUser.username !== "admin"){%></li>
+                <li><a href="/home/history">History</a>
+                    <%}%>
+                    <%if(currUser && currUser.username == "admin"){%></li>
+                <li><a href="/menu/addMenu">Add Menu</a></li>
+                <li><a href="/menu">History</a></li>
+                 <li><a href="/menu/poll">Poll</a></li>
                 <%}%>
-                <%if(currUser && currUser.username == "admin"){%>
-                    <a href="/menu/addMenu">Add Menu</a>
-                    <a href="/menu">History</a>
-                    <a href="/menu/poll">Poll</a>
-                <%}%>
-                <a href="/home/feedback" class="Feedback">Feedback</a>
-                <a href="/menu/getPoll">Poll Menu</a>
+                <li><a href="/home/feedback" class="Feedback">Feedback</a></li>
+                <li><a href="/menu/getPoll">Poll Menu</a></li>
+                </ul>
             </div>
         </div>
         <div class="open-sidebar" onclick="toggleNav()">
