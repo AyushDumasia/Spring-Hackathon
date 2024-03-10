@@ -247,11 +247,10 @@ screen and (min-resolution: 192dpi) {
     background-color: var(--shade-of-secondary-color);
 }
 
-<<<<<<< HEAD
-@media (max-width:375px) {
+@media (max-width : 900px) {
     
     .feedback-card{
-        width: 90%;   
+        width: 40%;   
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
@@ -270,8 +269,6 @@ screen and (min-resolution: 192dpi) {
         flex-wrap: wrap;
     }
 }
-=======
-
   @keyframes movePath {
     0% {
       transform: translateX(0);
@@ -290,4 +287,3 @@ screen and (min-resolution: 192dpi) {
 svg {
     animation: movePath 5s infinite;
   }
->>>>>>> 26e11173a9c01f981174e12ba9da21ebf53b4769

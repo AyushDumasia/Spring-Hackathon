@@ -82,8 +82,7 @@
     border-radius: 10px;
 }
 
-<<<<<<< HEAD
-@media (max-width: 375px) {
+@media (max-width : 900px) {
     .largeContainer{
         display: flex;
         flex-wrap: wrap;
@@ -92,8 +91,6 @@
     .footer-container{
         width: 100%;
         height: calc(100%-0);
-        font-size: 3vw;
-        font-weight: 500;
         display: flex;
         flex-wrap: wrap;
         flex : 1 0 4rem;
@@ -123,6 +120,3 @@
     }
     
 }
-=======
-
->>>>>>> 26e11173a9c01f981174e12ba9da21ebf53b4769

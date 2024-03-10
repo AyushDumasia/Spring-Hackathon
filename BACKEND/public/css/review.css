@@ -81,3 +81,19 @@
         transform: translateX(-400%);
     }
 }
+
+
+@media (max-width : 900px) {
+    .feedback-card{
+        font-size: 10px;
+        width: 200px;
+        height: 200px;
+    }
+    .feedback-comment > p{
+        height: 50px;
+    }
+    .feedback-container{
+        margin: 0px;
+        height: 40vh;
+    }
+}

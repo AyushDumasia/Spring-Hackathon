@@ -18,7 +18,7 @@ router.get("/log-in" ,asyncHandler( (req ,res) =>{
     res.render("./user/logIn.ejs")
 }))
 
-// Login route/controller
+// Login route
 router.post("/log-in", passport.authenticate("local", { failureRedirect: "/log-in", failureFlash: true }),
     asyncHandler(async (req, res) => {
         req.flash("success", "Welcome to Hostelly");

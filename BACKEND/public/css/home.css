@@ -196,7 +196,7 @@ body{
     margin: 5px auto;            
     width: 50%;                   
     border: 1px solid transparent;
-    border-radius: 8px;          
+    border-radius : 5px;
 }
 
 .success {
@@ -243,7 +243,6 @@ body{
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: center; */
 }
 
 .card {
@@ -426,8 +425,12 @@ input[type="radio"] {
     margin-bottom: 10px;
 }
 
-@media (max-width : 375px) {
-    
+@media (max-width : 900px) {
+    .Register,.Login{
+        /* padding: 2px; */
+        font-size: 12px;
+    }
+
     .page-1-container{
         height: 100%;
         width: 100%;
@@ -446,7 +449,7 @@ input[type="radio"] {
         padding-left: 5px;
     }
     .sidebar-content{
-        border-top: 1.5px solid black;
+        /* border-top: 1.5px solid black; */
         margin-left: 0.5rem;
     }
     .welcome-container{
@@ -481,10 +484,13 @@ input[type="radio"] {
         font-size: 0.8rem;
         align-items: start;
         padding-left: 30px;
+        font-size: 10px;
     }
     .bottom{
         flex-wrap: wrap;
         padding: 0;
+        font-size: 10px;
+
     }
     .mess-img{
         background-image: url('/assests/mess.jpg');
@@ -492,7 +498,7 @@ input[type="radio"] {
         width: 100%;
     }
     .feedback-container{
-     margin: 30px 0 30px 0;
+     /* margin: 30px 0 30px 0; */
     }
     .menu-item-container{
         display: flex;
@@ -501,6 +507,18 @@ input[type="radio"] {
     }
     .item-heading{
         font-size: 3.1vw;
+    }
+    .history-container{
+        align-items: center;
+        flex-direction: column;
+    }
+    .card{
+        width: 50%;
+    }
+    .alert {
+        padding: 10px;
+        font-size: 11px;
+        border-radius : 5px;
     }
 }
 
