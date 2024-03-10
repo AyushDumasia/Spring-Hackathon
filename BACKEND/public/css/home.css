@@ -230,6 +230,7 @@ body{
 
 
 .main-history-container{
+    min-height: 84vh;
     display: block;
     width: 100%;
     margin:10px auto;
@@ -263,7 +264,7 @@ body{
 }
 
 .card-text {
-    font-weight: 700;
+    /* font-weight: 700; */
     /* text-align: center;   */
     margin-bottom: 8px;
 }
@@ -370,10 +371,14 @@ input[type="radio"] {
 .dataItem-heading{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .attendance-heading {
     /* font-size: 20px;  */
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     margin-bottom: 20px;
 }
 
@@ -381,9 +386,8 @@ input[type="radio"] {
     text-align: start;
     padding: 15px 15px 15px 0px;
     margin: 5px;
-    /* border-radius: 5px; */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    border-bottom   : 2px solid black;
+    border-bottom   : 2px solid grey;
 }
 
 .attendance-btn{

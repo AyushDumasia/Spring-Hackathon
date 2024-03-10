@@ -3,7 +3,11 @@
 </head>
 <body>
     <div class="attendance-container">
-        <h1 class="attendance-heading">Date : <%= dataItem.createdAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric'}) %></h1>
+        <h1 class="attendance-heading">Date : <%= dataItem.createdAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric'}) %>
+            <span>
+                <%= dataItem.time %></h2>
+            </span>
+        </h1>
         <h2 class="dataItem-heading"><%= dataItem.menuItem %>
             <span>
                 ₹<%= dataItem.price %></h2>
