@@ -10,14 +10,10 @@
                     <!-- <b> -->
                         <div class="add-heading-card">
 
-                            <p class="card-text"><%= historyItem.time %></p>
-                            <p class="card-title"><%= historyItem.menuItem %></p>
-                    <!-- </b> -->
-                    <!-- <b> -->
-                        <p class="card-text-1">Price: ₹<%= historyItem.price %></p>
-                    <!-- </b> -->
-                    <!-- <b> -->
-                        <p class="card-text-1">Date: <%= historyItem.Created_At.toLocaleDateString('en-US', { month: 'short', day: 'numeric'}) %></p>
+                            <h3 class="card-text"><%= historyItem.menuItem %></h3>
+                    <p class="card-text">Time: <%= historyItem.time %></p>
+                    <p class="card-text">Price: ₹<%= historyItem.price %></p>
+                    <p class="card-text">Date: <%= historyItem.Created_At.toLocaleDateString('en-US', { month: 'short', day: 'numeric'}) %></p>
                     </div>
                         <!-- </b> -->
                         <!-- </div> -->

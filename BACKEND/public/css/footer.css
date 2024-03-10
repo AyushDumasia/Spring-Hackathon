@@ -82,6 +82,7 @@
     border-radius: 10px;
 }
 
+<<<<<<< HEAD
 @media (max-width: 375px) {
     .largeContainer{
         display: flex;
@@ -122,3 +123,6 @@
     }
     
 }
+=======
+
+>>>>>>> 26e11173a9c01f981174e12ba9da21ebf53b4769

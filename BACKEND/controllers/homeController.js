@@ -43,26 +43,6 @@ let historyPage = asyncHandler(async (req, res) => {
     }
 });
 
-
-// const redirectToPaymentApp = async (res, amount) => {
-//     try {
-//       // Replace these values with your actual Paytm merchant ID and other credentials
-//       const merchantId = 'your_merchant_id';
-//       const orderId = uuid(); // Generate a unique order ID for each transaction
-//       const callbackUrl = 'your_callback_url'; // Replace with your callback URL
-  
-//       // Construct the Paytm Deep Link URL
-//       const paytmDeepLink = `paytm://wallet/txn?mid=${merchantId}&orderId=${orderId}&txnToken=${uuid()}&amount=${amount}&callbackUrl=${callbackUrl}`;
-  
-//       // Redirect the user to the Paytm app
-//       res.redirect(paytmDeepLink);
-//     } catch (error) {
-//       console.error('Error generating Paytm Deep Link:', error);
-//       // Handle the error or redirect to an error page
-//       res.status(500).send('Error generating Paytm Deep Link');
-//     }
-//   };
-
 let addItem = asyncHandler(async (req, res) => {
     try {
         let { id } = req.params;

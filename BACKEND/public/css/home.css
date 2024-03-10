@@ -152,20 +152,30 @@ body{
 }
 
 .item-container{
-    padding: 0px 100px 0px 100px;
-    margin-top: 80px;
+    /* padding: 0px 100px 0px 100px; */
+    /* margin-top: 80px; */
 }
 
 .item-box {
+    width: 90%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 5px);
     align-items: center;
     justify-content: space-around;
     margin: 10px 0px;
-    padding: 20px;
+    padding: 40px;
+    /* border-radius: 8px; */
+}
+
+.item-box:nth-child(odd){
     /* background-color:rgb(221, 213, 207); */
-    border-radius: 8px;
+    border-bottom : 1px solid  black;
+}
+
+.item-box:nth-child(even){
+    margin: 0px 0px;
+    padding: 0px;
 }
 
 .item-box h5 {
@@ -223,6 +233,7 @@ body{
 
 
 .main-history-container{
+    min-height: 84vh;
     display: block;
     width: 100%;
     margin:10px auto;
@@ -256,7 +267,7 @@ body{
 }
 
 .card-text {
-    font-weight: 700;
+    /* font-weight: 700; */
     /* text-align: center;   */
     margin-bottom: 8px;
 }
@@ -363,10 +374,14 @@ input[type="radio"] {
 .dataItem-heading{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .attendance-heading {
     /* font-size: 20px;  */
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     margin-bottom: 20px;
 }
 
@@ -374,9 +389,8 @@ input[type="radio"] {
     text-align: start;
     padding: 15px 15px 15px 0px;
     margin: 5px;
-    /* border-radius: 5px; */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    border-bottom   : 2px solid black;
+    border-bottom   : 2px solid grey;
 }
 
 .attendance-btn{
@@ -394,7 +408,7 @@ input[type="radio"] {
     display: flex;
     justify-content: center;
     margin: 10px 0px;
-    padding: 20px;
+    padding: 40px;
 }
 
 .nofity-btn{
