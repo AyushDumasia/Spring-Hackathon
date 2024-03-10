@@ -81,3 +81,44 @@
     border: none;
     border-radius: 10px;
 }
+
+@media (max-width: 375px) {
+    .largeContainer{
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1 0 8rem;
+    }
+    .footer-container{
+        width: 100%;
+        height: calc(100%-0);
+        font-size: 3vw;
+        font-weight: 500;
+        display: flex;
+        flex-wrap: wrap;
+        flex : 1 0 4rem;
+        justify-content: center;
+    }
+    .footer-contact{
+        width: 100%;
+    }
+    .footer-contact>h1{
+        width: 100%;
+        font-size: 5vw;   
+    }
+    .contact-card{
+        width: 100%;
+        padding: 0;
+    }
+
+    .footer-bottom{
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+    .map{
+        margin: 0;
+        width: 90vw;
+        padding-top: 5vh;
+    }
+    
+}

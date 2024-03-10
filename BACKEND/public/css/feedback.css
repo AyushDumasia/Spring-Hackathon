@@ -246,3 +246,26 @@ screen and (min-resolution: 192dpi) {
 .sub-btn-feedback:hover {
     background-color: var(--shade-of-secondary-color);
 }
+
+@media (max-width:375px) {
+    
+    .feedback-card{
+        width: 90%;   
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .feedback-form-container{
+        width: 96%;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .comment-section-container{
+        width:100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

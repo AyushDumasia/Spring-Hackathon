@@ -76,3 +76,19 @@
 .fa-circle-check{
     color: #00ab06;
 }
+
+@media (max-width : 375px) {
+    .container{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .card{
+        width: calc(100%-0);
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 16px;
+        justify-content: space-between;
+    }
+}
